@@ -84,7 +84,7 @@ composer create-project laravel/laravel www
 cd www
 ```
 
-Install the project dependencies from the [composer.lock](https://github.com/csm-sem/workflow/blob/master/www/.gitignore) file if present, or fall back on the [composer.json](https://github.com/csm-sem/workflow/blob/master/www/composer.json). If you checkout the repository, you just need to execute the following command to install the required dependencies:
+Install the project dependencies from the [composer.lock](https://github.com/csm-sem/workflow/blob/master/www/.gitignore) file if present, or fall back on the [composer.json](https://github.com/csm-sem/workflow/blob/master/www/composer.json). If you checkout the repository, you just need to execute the following command (in <path>/www) to install the required dependencies:
 
 ```
 composer install
