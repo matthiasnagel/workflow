@@ -109,4 +109,8 @@ art serve
 
 ## App
 
-...test
+### Architecture
+
+![alt text][logo]
+
+[logo]: https://raw.github.com/csm-sem/workflow/master/res/Vocab.png "Vocab Architecture"
