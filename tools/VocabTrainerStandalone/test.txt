@@ -1,0 +1,2 @@
+word;noun;Wort
+bear;noun;Wildtier, Bär, gefährliches Wesen
