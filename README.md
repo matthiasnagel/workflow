@@ -9,7 +9,7 @@ Repository for System Engineering and Management (EDV-Nr: 38311).
 Information:
 
 * Professor: [Prof. Walter Kriha](http://kriha.de/)
-* Supporters: Thomas Fankhauser
+* Supporters: [Thomas Fankhauser](fankhauser@hdm-stuttgart.de)
 
 Members:
 
