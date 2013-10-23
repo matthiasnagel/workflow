@@ -1,0 +1,2 @@
+science;noun;Wissenschaft, Naturwissenschaft, Forschung
+walk;verb;gehen, laufen, wandern, wandeln, spazieren, spazieren gehen

@@ -9,9 +9,9 @@ class VocabFileParser {
 
     private $dbHandler;
 
-    public function __construct() {
+    public function __construct($testMode = false) {
         require_once 'VocabDbAccess.php';
-        $this->dbHandler = new VocabDbAccess();
+        $this->dbHandler = new VocabDbAccess($testMode);
     }
 
     public function addVocabByFiles($files) {
@@ -48,7 +48,7 @@ class VocabFileParser {
             return false;
         }
             
-        // further checks
+        // further checks in private methods
         return true;
     }
     

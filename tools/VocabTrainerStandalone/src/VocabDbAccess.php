@@ -2,17 +2,24 @@
 
 /**
  * Description of VocabDbAccess
- *
  * @author rellek
  */
 class VocabDbAccess {
 
     private $settings;
     private $mysql;
+    private $testMode;
 
-    public function __construct() {
+    public function __construct($testMode = false) {
+        $this->testMode = $testMode;
+
         $ini = __DIR__ . '/../setup/config.ini';
         $this->settings = parse_ini_file($ini);
+        if ($this->testMode) {
+            $this->settings['dbName'] = $this->settings['dbName'] . '_dev';
+        } else {
+            $this->settings['dbName'] = $this->settings['dbName'] . '_app';
+        }
         $this->connect();
     }
 
@@ -48,9 +55,12 @@ class VocabDbAccess {
             return true;
         }
     }
-    
-    public function getDbHandle() {
-        return $this->mysql;
-    }
 
+    public function getDbHandle() {
+        if ($this->testMode) {
+            return $this->mysql;
+        } else {
+            throw new Exception("This method is only available in test mode");
+        }
+    }
 }
