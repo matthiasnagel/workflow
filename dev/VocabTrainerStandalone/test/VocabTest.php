@@ -37,7 +37,7 @@ class VocabTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers Vocab::getId
-     * @expectedException Exception
+     * @expectedException PHPUnit_Framework_Error_Warning
      */
     public function testGetIdNoId() {
         $this->vocabNoId->getId(); // throws error since no id was set.

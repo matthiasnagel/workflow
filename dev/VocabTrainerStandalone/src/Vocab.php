@@ -18,7 +18,8 @@ class Vocab {
 
     public function getId() {
         if ($this->id === null) {
-            throw new Exception('Id not set for this Vocab!');
+            require_once 'VocabException.php';
+            throw new VocabException('Id not set for this Vocab!');
         } else {
             return $this->id;
         }
