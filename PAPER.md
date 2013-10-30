@@ -107,15 +107,10 @@ art serve
 // php -S localhost:8000 -t public
 ```
 
-Note: You need execute-permissions on the artisian php-file.
+**Note**: You need execute-permissions on the artisian php-file.
 
 ### The actual Vocab Trainer
-* Adapt your database config in `<project_path>/www/app/config/database.php` (the mysql connection array only), usually that's db-name, user and pw.
-* Run `php artisan migrate:make create_vocab_table` in `<project_path>/www/`
-
-This call generates a migration class "CreateVocabTable" with an easy to handle code-body for us. You find the migration in `<project_path>/www/app/database/migration/<date_of_creation>_create_vocab_table.php`
-
-Note: This is a one-time procedure which won't be repeated after a common repository pull.
+**Note** Installation process described in the [Wiki](https://github.com/csm-sem/workflow/wiki/Wiki:-The-Coding-Procedure-using-the-Laravel-Framework).
 
 
 ## App
