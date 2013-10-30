@@ -107,6 +107,11 @@ art serve
 // php -S localhost:8000 -t public
 ```
 
+Note: You need execute-permissions on the artisian php-file.
+
+### The actual Vocab Trainer
+Adapt your database config in `<project_path>/www/app/config/database.php` (the mysql connection array only).
+
 ## App
 
 ### Architecture
