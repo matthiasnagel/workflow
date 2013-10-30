@@ -25,21 +25,12 @@ class VocabFileParser extends BaseController {
     public function getParsed() {
         return $this->parsed;
     }
-    
-    public function reset() {
+
+    private function reset() {
         $this->parsed = array();
         $this->provider = new VocabProvider();
     }
 
-    private function beautifyRecord($record) {
-        $sugarRecord = array(
-            'word' => $record[0],
-            'type' => $record[1],
-            'translations' => $record[2]
-        );
-        return $sugarRecord;
-    }
-    
     private function parseFile($file) {
         $parseHandler = file($file);
         $vocabStack = array();
@@ -56,7 +47,16 @@ class VocabFileParser extends BaseController {
         }
 
         //array_merge($this->parsed, $vocabStack);
-        $this->parsed = $vocabStack;
+        $this->parsed = array_merge($this->parsed, $vocabStack);
+    }
+
+    private function beautifyRecord($record) {
+        $sugarRecord = array(
+            'word' => $record[0],
+            'type' => $record[1],
+            'translations' => trim($record[2])
+        );
+        return $sugarRecord;
     }
 
     private function isRecordWellFormed($line) {
