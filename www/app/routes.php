@@ -13,5 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+    $vocabs = Vocab::all();
+
+    return View::make('vocabs')->with('vocabs', $vocabs);
 });
