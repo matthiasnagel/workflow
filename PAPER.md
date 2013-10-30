@@ -110,7 +110,7 @@ art serve
 **Note**: You need execute-permissions on the artisian php-file.
 
 ### The actual Vocab Trainer
-**Note** Installation process described in the [Wiki](https://github.com/csm-sem/workflow/wiki/Wiki:-The-Coding-Procedure-using-the-Laravel-Framework).
+**Note**: Entire process described in the [Wiki](https://github.com/csm-sem/workflow/wiki/Wiki:-The-Coding-Procedure-using-the-Laravel-Framework).
 
 
 ## App
