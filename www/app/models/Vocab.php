@@ -11,6 +11,9 @@
  *
  * @author rellek
  */
+
+
 class Vocab extends Eloquent {
+	public static $rules = array();	
     protected $fillable = array('word', 'type', 'translations');
 }

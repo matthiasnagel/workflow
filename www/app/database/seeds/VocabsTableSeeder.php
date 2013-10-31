@@ -1,6 +1,6 @@
 <?php
 
-class VocabTableSeeder extends Seeder {
+class VocabsTableSeeder extends Seeder {
 
 	private $parser;
 	private $file;

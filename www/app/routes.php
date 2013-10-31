@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-    $vocabs = Vocab::all();
+// Route::get('/', function()
+// {
+//     $vocabs = Vocab::all();
+//     return View::make('vocabs')->with('vocabs', $vocabs);
+// });
 
-    return View::make('vocabs')->with('vocabs', $vocabs);
-});
+Route::get('/', 'VocabsController@index');
+Route::resource('vocabs', 'VocabsController');
