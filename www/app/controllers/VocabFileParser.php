@@ -7,8 +7,8 @@
  */
 class VocabFileParser extends BaseController {
 
-    private $parsed;
-    private $provider;
+    public $parsed;
+    public $provider;
 
     public function parse($files) {
         $this->reset();
