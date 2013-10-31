@@ -52,8 +52,8 @@ class VocabFileParser extends BaseController {
 
     private function beautifyRecord($record) {
         $sugarRecord = array(
-            'word' => $record[0],
-            'type' => $record[1],
+            'word' => trim($record[0]),
+            'type' => trim($record[1]),
             'translations' => trim($record[2])
         );
         return $sugarRecord;
