@@ -12,7 +12,7 @@ class VocabsTableSeeder extends Seeder {
 		$this->parser->parse($this->file);
 
 		$vocabs = [];
-		$raw = $this->parser->parsed;
+		$raw = $this->parser->getParsed();
 
 		foreach($raw as $vocab){
 			$vocabs[] = array(

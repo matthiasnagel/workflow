@@ -21,7 +21,6 @@ class CreateVocabsTable extends Migration {
 		});
 	}
 
-
 	/**
 	 * Reverse the migrations.
 	 *
