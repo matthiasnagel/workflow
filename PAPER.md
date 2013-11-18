@@ -131,3 +131,5 @@ Travis CI Repository: [https://travis-ci.org/csm-sem/workflow](https://travis-ci
 Short description and instructions to configure Travic CI:
 - [Welcome to Travis CI](http://about.travis-ci.org/)
 - [Getting Started](http://about.travis-ci.org/docs/user/getting-started/)
+
+Status: [![Build Status](https://travis-ci.org/csm-sem/workflow.png?branch=master)](https://travis-ci.org/csm-sem/workflow)
