@@ -6,6 +6,7 @@ php:
 
 env:
  - LARAVEL_ENV=travis
+ - DB=mysql
 
 before_script:
  - mysql -e 'create database vocab_laravel;'
