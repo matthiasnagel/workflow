@@ -13,4 +13,8 @@ before_script:
  - php artisan migrate
  - php artisan db:seed
 
+after_script:
+ - php artisan migrate:reset
+ - composer clear
+
 script: phpunit
