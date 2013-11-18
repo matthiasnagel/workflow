@@ -17,5 +17,6 @@
     </testsuites>
     <php>
         <env name="LARAVEL_ENV" value="travis"/>
+        <server name="LARAVEL_ENV" value="travis"/>
     </php>
 </phpunit>

@@ -14,14 +14,11 @@ before_script:
  - composer install --dev
  - php artisan migrate --env=travis
  - php artisan db:seed --env=travis
- - php artisan env
 
 after_script:
- - cd www
  - php artisan env
  - php artisan migrate:reset --env=travis
  - php artisan cache:clear
- - composer clear
 
 script: phpunit
 
