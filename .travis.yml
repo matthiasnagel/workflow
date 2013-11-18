@@ -5,6 +5,9 @@ php:
  - 5.4
  - 5.3
 
+env:
+ - LARAVEL_ENV=travis
+
 before_script:
  - mysql -e 'create database vocab_laravel;'
  - cd www
@@ -12,6 +15,7 @@ before_script:
  - composer install --dev
  - php artisan migrate --env=travis
  - php artisan db:seed --env=travis
+ - php artisan env
 
 after_script:
  - php artisan migrate:reset --env=travis
