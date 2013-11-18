@@ -17,6 +17,8 @@ before_script:
  - php artisan env
 
 after_script:
+ - cd www
+ - php artisan env
  - php artisan migrate:reset --env=travis
  - php artisan cache:clear
  - composer clear
