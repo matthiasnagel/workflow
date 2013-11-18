@@ -24,3 +24,6 @@ after_script:
  - composer clear
 
 script: phpunit
+
+notifications:
+ email: false
