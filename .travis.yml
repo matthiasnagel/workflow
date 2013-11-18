@@ -23,7 +23,7 @@ after_script:
  - php artisan cache:clear
  - composer clear
 
-script: LARAVEL_ENV=travis phpunit
+script: phpunit
 
 notifications:
  email: false

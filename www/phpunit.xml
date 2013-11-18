@@ -15,4 +15,7 @@
             <directory>./app/tests/app/</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="LARAVEL_ENV" value="travis"/>
+    </php>
 </phpunit>
