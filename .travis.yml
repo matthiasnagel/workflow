@@ -10,11 +10,12 @@ before_script:
  - cd www
  - composer self-update
  - composer install --dev
- - php artisan migrate
- - php artisan db:seed
+ - php artisan migrate --env=travis
+ - php artisan db:seed --env=travis
 
 after_script:
- - php artisan migrate:reset
+ - php artisan migrate:reset --env=travis
+ - php artisan cache:clear
  - composer clear
 
 script: phpunit
