@@ -29,7 +29,7 @@ $app->redirectIfTrailingSlash();
 $env = $app->detectEnvironment(array(
 	'local' => array('your-machine-name'),
 ));
-if($_SERVER['LARAVEL_ENV']){
+if(!empty($_SERVER['LARAVEL_ENV'])){
 	$env = $app->detectEnvironment(function(){
 	    return $_SERVER['LARAVEL_ENV'];
 	});
