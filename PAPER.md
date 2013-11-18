@@ -117,6 +117,17 @@ art serve
 
 ### Architecture
 
-![alt text][logo]
+![Vocab Architecture][logo]
 
 [logo]: https://raw.github.com/csm-sem/workflow/master/res/Vocab.png "Vocab Architecture"
+
+We use that basic architecture to wrap finally that logic in Laravel.
+
+
+## Continuous Integration
+
+Travis CI Repository: [https://travis-ci.org/csm-sem/workflow](https://travis-ci.org/csm-sem/workflow)
+
+Short description and instructions to configure Travic CI:
+- [Welcome to Travis CI](http://about.travis-ci.org/)
+- [Getting Started](http://about.travis-ci.org/docs/user/getting-started/)
