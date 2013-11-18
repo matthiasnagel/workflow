@@ -65,9 +65,9 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
+			'host'     => '127.0.0.1',
+			'database' => 'vocab_laravel',
+			'username' => 'travis',
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
@@ -76,9 +76,9 @@ return array(
 
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
+			'host'     => '127.0.0.1',
+			'database' => 'vocab_laravel',
+			'username' => 'travis',
 			'password' => '',
 			'prefix'   => '',
 		),
