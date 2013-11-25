@@ -24,4 +24,14 @@ class VocabProvider extends BaseController {
         $vocab->translations = $record['translations'];
         return $vocab;
     }
+    
+    public function getTotalVocabNumber() {
+        return Vocab::count();
+    }
+    
+    public function provide($number, array $ignoredIds) {
+        return Vocab::whereNotIn('id', $ignoredIds)->get($number);
+    }
+    
+
 }
