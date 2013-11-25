@@ -1,0 +1,13 @@
+sway;noun;Einfluss, Macht, Schwingen, Schaukeln, Schwanken
+coincidental;adjective;zufällig
+coherent;adjective;zusammenhängend, schlüssig, stimmig, einheitlich
+deposition;noun;Ansatz, Ablagerung, Entthronung, Absetzung
+ramification;noun;Verzweigung, Geäst, Verästelung
+commotion;noun;Aufregung, Tumult, Lärm, Zinnober
+disclosure;noun;Bekanntgabe, Enthüllung, Aufdeckung, Eröffnung
+convoluted;adjective;gewunden, verschlungen, verwickelt
+fiber;noun;Faser, Textur
+aghast;adjective;entsetzt, fassungslos
+vent;verb;entlüften, abreagieren, abladen
+wit;noun;Witz, Esprit, Verstand, Geist
+sophisticated;adjective;anspruchsvoll, raffiniert, hoch entwickelt, verfeinert, elegant, kultiviert, schick, gehoben, gepflegt, klug, weltmännisch, weltklug

@@ -1,0 +1,17 @@
+tentative;adjective;vorläufig, versuchsweise, provisorisch, unverbindlich
+vendor;noun;Anbieter, Verkäufer
+supervise;verb;überwachen, kontrollieren, aufpassen, beaufsichtigen
+sidekick;noun;Kumpel, Kumpan, Helfershelfer
+indefinite;ajdective;unbestimmte, unbegrenzt, unklar, undeutlich
+trajectory;noun;Flugbahn, Kurve
+contradict;verb;widersprechen
+relish;verb;genießen, schmecken lassen
+relish;noun;Geschmack, Behagen, Würze, Gefallen, Reiz, Soße
+expenditure;noun;Ausgaben, Aufwendungen, Kosten, Aufwand, Verbrauch
+sophisticated;adjective;anspruchsvoll, raffiniert, elegant, hoch entwickelt, schick, kultiviert, gehoben, gepflegt
+dizzy;adjective;schwindlig, taumelig, duselig, schwummerig, Schwindel erregend
+reluctant;adjective;zurückhaltend, widerstrebend, unwillig, unlustig, verdrossen
+self-flagellation;noun;Selbstgeißelung
+candor;noun;Offenheit, Offenherzigkeit, Ehrlichkeit
+asset;noun;Kapital, Vermögenswert, Vorzug
+vendor;noun;Anbieter
