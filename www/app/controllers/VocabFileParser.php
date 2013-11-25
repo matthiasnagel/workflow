@@ -42,7 +42,7 @@ class VocabFileParser extends BaseController {
                 array_push($vocabStack, $this->provider->makeVocab($sugarRecord));
             } else {
                 // exception?
-                echo "The line $parsedLine is not well-formed, not parsed!";
+                echo "The line \"$parsedLine\" is not well-formed, not parsed!\n";
             }
         }
 
@@ -52,8 +52,8 @@ class VocabFileParser extends BaseController {
 
     private function beautifyRecord($record) {
         $sugarRecord = array(
-            'word' => trim($record[0]),
-            'type' => trim($record[1]),
+            'word' => $record[0],
+            'type' => $record[1],
             'translations' => trim($record[2])
         );
         return $sugarRecord;
