@@ -133,3 +133,36 @@ Short description and instructions to configure Travic CI:
 - [Getting Started](http://about.travis-ci.org/docs/user/getting-started/)
 
 Status: [![Build Status](https://travis-ci.org/csm-sem/workflow.png?branch=master)](https://travis-ci.org/csm-sem/workflow)
+
+Mit der folgenden Konfiguration lassen wir die Tests automatisiert testen:
+
+```
+language: php
+
+php:
+ - 5.5
+ - 5.4
+
+env:
+ - LARAVEL_ENV=travis DB=mysql
+
+before_script:
+ - mysql -e 'create database vocab_laravel;'
+ - cd www
+ - composer self-update
+ - composer install --dev
+ - php artisan migrate --env=travis
+ - php artisan db:seed --env=travis
+
+after_script:
+ - php artisan env
+ - php artisan migrate:reset --env=travis
+ - php artisan cache:clear
+
+script: phpunit
+
+notifications:
+ email: false
+```
+
+Damit Travis die Tests ausführen kann, muss man einige Einstellungen zur Entwicklungsumgebung festlegen. Die Einstellungen werden in der ```.travis.yml``` Datei festgehalten, welche sich im Root des Repositories befindet. Mit ```language``` legt man die benötigten Programmiersprachen fest. Da Laravel ein PHP Framework ist und zum Testen PHPUnit nutzt, setzten wir als Programmiersprache PHP ein. Laravel erfordert eine PHP Version größergleich 5.3.7. Bei Travis kann man multiple Versionen der angegebenen Sprache setzen, sodass wir PHP 5.4 und 5.5. definiert haben. Mit dem Schlüsselbegriff ```env``` werden weitere Einstellungen zur Entwicklungsumgebung angegeben. Wir setzten mit ```LARAVEL_ENV=travis``` eine globale Server-Konstante, die wir in PHP auslesen können. Dadurch ist es nun möglich, dass man diverse Umgebungseinstellungen zu Datenbanken und Applikation laden kann. Als Datenbank nutzen wir eine einfache MySQL Datenbank, die mit einer weiteren Konstanten ```DB=mysql``` festgelegt wird. ```before_script``` beinhaltet Befehle, die vor dem Testen sequentiell ausgeführt werden. ```after_script``` beinhaltet Befehle, die nach dem Testen ausgeführt werden. Mit dem Befehl ```script: phpunit``` wird das eigentliche Testen mit PHPUnit angestossen. Bevor die Tests durchlaufen werden, wird eine Testumgebung aufgebaut. Zu Begin wird mit dem Befehl ```mysql -e 'create database vocab_laravel;'``` eine Datenbank mit dem Namen ```vocab_laravel``` erzeugt. Danach wechselt das Script in das Hauptverzeichnis der Laravel Installation und installiert die benötigten Scripte. Daraufhin wird ein Schema über die Migrationsdateien aufgebaut ```php artisan migrate --env=travis``` und mit dem Seeder mit Test-Daten befüllt ```php artisan db:seed --env=travis```. Nach diesem Befehl werden die einzelnen Tests durchlaufen und ein Ergebnis ausgegeben. Nach den Tests wird das Schema aufgehoben und der gesamte Framework Cache geleert. Die ganzen Ergebnise werden in Echtzeit sequentiell auf Travis ausgegeben.
