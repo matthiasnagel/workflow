@@ -18,4 +18,6 @@
 // });
 
 Route::get('/', 'VocabsController@index');
+Route::get('trainer', 'TrainerController@index');
+Route::post('trainer', 'TrainerController@check');
 Route::resource('vocabs', 'VocabsController');
