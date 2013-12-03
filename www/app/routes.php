@@ -19,5 +19,6 @@
 
 Route::get('/', 'VocabsController@index');
 Route::get('trainer', 'TrainerController@index');
+Route::get('trainer/reset', 'TrainerController@resetStats');
 Route::post('trainer', 'TrainerController@check');
 Route::resource('vocabs', 'VocabsController');

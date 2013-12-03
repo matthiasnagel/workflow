@@ -30,4 +30,9 @@
 		</ul>
 	{{ Form::close() }}
 
+	<p><span style="color: green;">Right</span>: {{ Session::get('right') }}</p>
+	<p><span style="color: red;">Wrong</span>: {{ Session::get('wrong') }}</p>
+	<br>
+	<a href="{{ URL::to('trainer/reset') }}">Reset stats</a>
+
 @stop
