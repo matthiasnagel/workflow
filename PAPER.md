@@ -109,6 +109,41 @@ art serve
 
 **Note**: You need execute-permissions on the artisian php-file.
 
+### PHPUnit Options
+
+In PHPUnit, there are different options for getting testing visible in the shell.
+
+####1.) phpunit --debug
+
+Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
+
+![PHPUnit--debug][debug]
+
+[debug]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--debug.png "PHPUnit--debug"
+
+####2.) phpunit --tap
+
+Report test execution progress in TAP format.
+
+![PHPUnit--tap][tap]
+
+[tap]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--tap.png "PHPUnit--tap"
+
+####3.) phpunit --testdox
+
+Test execution progress gets reported in TestDox format to the shell.
+
+![PHPUnit--testdox][testdox]
+
+[testdox]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--testdox.png "PHPUnit--testdox"
+
+
+## Nice Links
+* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
+* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
+* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
+
+
 ### The actual Vocab Trainer
 **Note**: Entire process described in the [Wiki](https://github.com/csm-sem/workflow/wiki/Wiki:-The-Coding-Procedure-using-the-Laravel-Framework).
 
