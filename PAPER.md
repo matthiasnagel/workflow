@@ -117,6 +117,11 @@ In PHPUnit, there are different options for getting testing visible in the shell
 
 Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
 
+```
+phpunit --debug
+
+```
+
 ![PHPUnit--debug][debug]
 
 [debug]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--debug.png "PHPUnit--debug"
@@ -125,6 +130,11 @@ Displays debugging information (e.g. ExceptionStack for Exceptions or filepath +
 
 Report test execution progress in TAP format.
 
+```
+phpunit --tap
+
+```
+
 ![PHPUnit--tap][tap]
 
 [tap]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--tap.png "PHPUnit--tap"
@@ -132,6 +142,11 @@ Report test execution progress in TAP format.
 ####3.) phpunit --testdox
 
 Test execution progress gets reported in TestDox format to the shell.
+
+```
+phpunit --testdox
+
+```
 
 ![PHPUnit--testdox][testdox]
 
