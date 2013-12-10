@@ -1,6 +1,6 @@
 # Continuous Integration in OpenSource Software Development
 
-System Engineering und Management (EDV-Nr: 38311) von [Prof. Walter Kriha](http://kriha.de/).
+System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http://kriha.de/).
 
 ## Motivation
 
