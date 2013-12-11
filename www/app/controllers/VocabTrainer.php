@@ -35,16 +35,6 @@ class VocabTrainer extends BaseController {
         if ($guess !== null) {
             $guess = $this->solveAttempt($guess);
         }
-
-        $data = array(
-            'result' => $guess,
-            'currentVocab' => $this->getNextVocab(),
-            'currentVocabFails' => $this->getNumberOfFailAttemptsForCurrentVocab(),
-            'overallFails' => $this->getNumberOfOverallFailAttempts(),
-            'overallCorrect' => $this->getNumberOfOverallTotalCorrectSolutions(),
-        );
-
-        return View::make('trainer.index', compact('data'));
     }
 
     public function getNextVocab() {
@@ -52,17 +42,21 @@ class VocabTrainer extends BaseController {
             $this->dispenseVocabs($this->bufferSize);
         }
         $this->currentVocab = array_pop($this->bufferedVocabs);
+        $this->currentVocabFails = 0;
         return $this->currentVocab;
     }
 
-    public function solveAttempt($guess) {
-        if ($guess == $this->currentVocab->word) {
-            $this->noteSuccess();
+    public function getCurrentVocab() {
+        return $this->currentVocab;
+    }
+
+    public function check($guess="") {
+        if(trim($guess)!="" && strstr(Session::get('translations'), trim($guess))!==false){
+            $this->currentVocabFails = 0;
             return true;
-        } else {
-            $this->noteFail();
-            return false;
         }
+        $this->currentVocabFails++;
+        return false;        
     }
 
     public function getNumberOfFailAttemptsForCurrentVocab() {
@@ -99,13 +93,19 @@ class VocabTrainer extends BaseController {
         return !(boolean) $this->bufferedVocabs;
     }
 
-    private function noteSuccess() {
+    public function noteSuccess() {
         $this->totalSolved++;
     }
 
-    private function noteFail() {
-        $this->currentVocabFails++;
+    public function noteFail() {
         $this->totalFails++;
+    }
+
+    public function resetStats() {
+        $this->getNextVocab();
+        $this->totalSolved = 0;
+        $this->totalFails = 0;
+        $this->currentVocabFails = 0;
     }
 
     private function dispenseVocabs($amount) {
