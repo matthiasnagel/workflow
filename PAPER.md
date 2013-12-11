@@ -24,6 +24,8 @@ pos:
 
 ## Motivation
 
+The first steps of professional software development is the version conrol of your software via subversion or git. But big projects need much more than just version control to work efficient and clean. To have an overview of neccessary tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (tdd) and the continous integration process. With our insights, we'd like to develop an ideal workflow. On the basis of a small software project, we'd like to test and evaluate our developed workflow. 
+
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
 
 
