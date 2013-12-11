@@ -173,6 +173,135 @@ phpunit --testdox
 
 We use that basic architecture to wrap finally that logic in Laravel.
 
+## Initial Tasks
+### Configure your Laravel environment
+* Make sure, you've gone through all the [steps](https://github.com/csm-sem/workflow/blob/master/PAPER.md#installation) concerning the framework installation.
+* Now adapt your database config in `<project_path>/www/app/config/database.php` (the mysql connection array only), usually that's db-name, user and pw.
+```
+                 [...]
+			'database'  => 'vocab_laravel', //mandatory for compatibility
+			'username'  => '<usrname>',
+			'password'  => '<paswrd>',
+                 [....]
+```
+* Create the database `vocab_laravel` itself using the mysql shell, phpmyadmin or whatever.
+
+### Set up (the) application table(s) and model(s)
+* Run `php artisan migrate:make create_vocab_table` in `<project_path>/www/`.
+This call generates a migration class "CreateVocabTable" with an easy to handle code-body. You find the migration in `<project_path>/www/app/database/migration/<date_of_creation>_create_vocab_table.php`
+
+**Note**: This is a one-time procedure which won't be repeated after a common repository pull.
+
+* Edit the migration. Initially, let's say
+```
+    public function up() {
+        Schema::create('vocabs', function($table) {
+            $table->increments('id');
+            $table->string('word')->unique();
+            $table->enum('type', array('noun', 'verb', 'adjective'));
+            $table->text('translations');
+            $table->timestamps();
+        });
+    }
+
+    public function down() {
+        Schema::dropIfExists('vocabs');
+    }
+```
+* Now run `php artisan migrate` in the shell. This will actually create the table for the `vocab_laravel` db.
+
+**Note**: If you get an error here, you've forgot something during the configuration of the Laravel environment.
+
+**Note**: If you alter something in your migration methods, just run the command again. If you realize, you've done something stupid, just rollback to the previous migration state via `php artisan migrate:rollback`.
+
+* To access this table, we need a related (model) class Vocab, which we create in `<project_path>/www/app/models` and which looks like this:
+```
+class Vocab extends Eloquent {
+    protected $fillable = array('word', 'type', 'translations');
+}
+```
+
+**Note**: The `$fillable` is not mandatory but that way we assure, that no other column is manipulated (for example, we don't want to insert an `'id'` manually).
+
+* That's pretty much it - you can go ahead and create a view for this model following the [instructions](http://laravel.com/docs/quick).
+
+## Get the ExampleTest running
+* A simple `composer update` fixed the dependency problems for me.
+
+**Note**: Just **do not** try to get the unit tests running within your IDE, Laravel unit tests are meant to be run in shell only.
+
+## Writing first functionality and unit tests
+
+### Vocab Provider
+* What we wanna do is to insert and read vocab records from the db. This is easy using the eloquent ORM:
+```
+class VocabProvider extends BaseController {
+
+    public function insertVocab(Vocab $vocab) {
+        $vocab->save();
+    }
+
+    public function makeVocab(array $record) {
+        $vocab = new Vocab;
+        $vocab->word = $record['word'];
+        $vocab->type = $record['type'];
+        $vocab->translations = $record['translations'];
+        return $vocab;
+    }
+}
+```
+This methods takes a record of a single vocab and inserts it in the vocab table.
+
+* To test this method, we pretty much insert a record and look it up afterwards, if it's there, the test is successful:
+```
+class VocabProviderTest extends TestCase {
+
+    protected $vocabProvider;
+    protected $vocab;
+
+    public function setUp() {
+        parent::setUp();
+        $this->vocabProvider = new VocabProvider;
+
+        $record = array(
+            'word' => "working",
+            'type' => "noun",
+            'translations' => "Arbeiten, Arbeit, Bearbeitung, Betrieb, Handhabung"
+        );
+        $this->vocab = $this->vocabProvider->makeVocab($record);
+    }
+
+    public function testMakeVocab() {
+        $this->assertEquals("working", $this->vocab->word);
+        $this->assertEquals("noun", $this->vocab->type);
+        $this->assertStringEndsWith(", Handhabung", $this->vocab->translations);
+    }
+
+    public function testInsertVocab() {
+        $this->vocab->save(); // this is to test
+        $inDb = Vocab::where('word', '=', 'working')->get();
+        // we expect 1 item -> 0th item in result.
+        $vocab = $inDb[0];
+        $this->assertEquals($this->vocab->type, $vocab->type);
+        $this->assertEquals($this->vocab->translations, $vocab->translations);
+        // if test was successful, just delete the entry
+        $inDb[0]->delete();
+    }
+}
+```
+
+### Database Migration and Seeding
+
+To create the databse schema just type the following command:
+```
+php artisan migrate
+```
+
+To seed the database with data just type the following command. It uses the parser internally.
+```
+php artisan db:seed
+```
+
 
 ## Continuous Integration
 
