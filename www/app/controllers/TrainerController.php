@@ -7,9 +7,9 @@ class TrainerController extends BaseController {
 	/**
 	 * Create a trainer.
 	 */
-    public function __construct() {
-        $this->trainer = new VocabTrainer();
-    }
+	public function __construct() {
+		$this->trainer = new VocabTrainer();
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -18,16 +18,6 @@ class TrainerController extends BaseController {
 	 */
 	public function index()
 	{
-
-        // $data = array(
-        //     'result' => $guess,
-        //     'currentVocab' => $this->getNextVocab(),
-        //     'currentVocabFails' => $this->getNumberOfFailAttemptsForCurrentVocab(),
-        //     'overallFails' => $this->getNumberOfOverallFailAttempts(),
-        //     'overallCorrect' => $this->getNumberOfOverallTotalCorrectSolutions(),
-        // );
-        // return View::make('trainer.index', compact('data'));
-
 		$to = (($this->trainer->getCurrentVocab()->type=='verb')?'to ':'');
 
 		return View::make('trainer.index', array(
