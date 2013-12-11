@@ -4,6 +4,9 @@ class TrainerController extends BaseController {
 
 	private $trainer;
 
+	/**
+	 * Create a trainer.
+	 */
     public function __construct() {
         $this->trainer = new VocabTrainer();
     }
@@ -11,7 +14,7 @@ class TrainerController extends BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 * @return View
 	 */
 	public function index()
 	{
@@ -41,7 +44,7 @@ class TrainerController extends BaseController {
 	/**
 	 * Check the value.
 	 *
-	 * @return Response
+	 * @return Redirect
 	 */
 	public function check()
 	{
@@ -60,7 +63,7 @@ class TrainerController extends BaseController {
 	/**
 	 * Reset stats.
 	 *
-	 * @return Response
+	 * @return Redirect
 	 */
 	public function reset()
 	{
@@ -69,9 +72,9 @@ class TrainerController extends BaseController {
 	}
 
 	/**
-	 * Reset stats.
+	 * Next vocab.
 	 *
-	 * @return Response
+	 * @return Redirect
 	 */
 	public function next()
 	{
