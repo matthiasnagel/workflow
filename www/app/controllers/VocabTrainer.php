@@ -35,13 +35,21 @@ class VocabTrainer extends BaseController {
         if ($guess !== null) {
             $guess = $this->solveAttempt($guess);
         }
-//        return View::make('trainer.index', array('result' => $guess,
-//                    'currentVocab' => $this->getNextVocab(),
-//                    'currentVocabFails' => $this->getNumberOfFailAttemptsForCurrentVocab(),
-//                    'overallFails' => $this->getNumberOfOverallFailAttempts(),
-//                    'overallCorrect' => $this->getNumberOfOverallTotalCorrectSolutions(),
-//                        )
- // );// hier war ich gerade ! :)
+
+        $data = array(
+            'result' => $guess,
+            'currentVocab' => $this->getNextVocab(),
+            'currentVocabFails' => $this->getNumberOfFailAttemptsForCurrentVocab(),
+            'overallFails' => $this->getNumberOfOverallFailAttempts(),
+            'overallCorrect' => $this->getNumberOfOverallTotalCorrectSolutions(),
+        );
+
+        // echo "<pre>";
+        // var_dump('currentVocab', compact('data'));
+        // echo "</pre>";
+        // exit();
+
+        return View::make('trainer.index', compact('data'));
     }
 
     public function getNextVocab() {
@@ -106,9 +114,7 @@ class VocabTrainer extends BaseController {
     }
 
     private function dispenseVocabs($amount) {
-        
         $this->bufferedVocabs = $this->provider->provide($amount, $this->usedVocabIds);
-
         foreach ($this->bufferedVocabs as $used) {
             array_push($this->usedVocabIds, $used->id);
         }

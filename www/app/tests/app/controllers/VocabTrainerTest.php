@@ -24,6 +24,6 @@ class VocabTrainerTest extends TestCase {
     }
     
     public function testTheTrainer() {
-
+        echo $this->trainer->getNextVocab();
     }
 }

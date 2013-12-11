@@ -3,8 +3,11 @@
 @section('main')
 
         <h1>Trainer</h1>
+        
+        {{{ var_dump($data['currentVocab']->type) }}}
+        {{{ var_dump($data['currentVocab']['type']) }}}
 
-        @if ($result !== null)
+        @if ($data['result'] !== null)
                 <p><strong>Result:</strong></p>
                 <p>
                         @if ($result===false)
