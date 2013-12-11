@@ -119,12 +119,30 @@ Displays debugging information (e.g. ExceptionStack for Exceptions or filepath +
 
 ```
 phpunit --debug
+PHPUnit 3.7.28 by Sebastian Bergmann.
 
+Configuration read from ..../workflow/www/phpunit.xml
+
+
+Starting test 'VocabFileParserTest::testParseSingleFile'.
+.
+Starting test 'VocabFileParserTest::testParseMultiFiles'.
+.
+Starting test 'VocabProviderTest::testMakeVocab'.
+.
+Starting test 'VocabProviderTest::testInsertVocab'.
+E
+Starting test 'VocabTest::testDummy'.
+.
+
+Time: 216 ms, Memory: 9.00Mb
+
+There was 1 error:
+
+1) VocabProviderTest::testInsertVocab
+PDOException: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '127.0.0.1' (61)
 ```
 
-![PHPUnit--debug][debug]
-
-[debug]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--debug.png "PHPUnit--debug"
 
 ####2.) phpunit --tap
 
@@ -132,12 +150,15 @@ Report test execution progress in TAP format.
 
 ```
 phpunit --tap
-
+TAP version 13
+ok 1 - VocabFileParserTest::testParseSingleFile
+ok 2 - VocabFileParserTest::testParseMultiFiles
+ok 3 - VocabProviderTest::testMakeVocab
+not ok 4 - Error: VocabProviderTest::testInsertVocab
+ok 5 - VocabTest::testDummy
+1..5
 ```
 
-![PHPUnit--tap][tap]
-
-[tap]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--tap.png "PHPUnit--tap"
 
 ####3.) phpunit --testdox
 
@@ -145,12 +166,21 @@ Test execution progress gets reported in TestDox format to the shell.
 
 ```
 phpunit --testdox
+PHPUnit 3.7.28 by Sebastian Bergmann.
 
+Configuration read from ..../workflow/www/phpunit.xml
+
+VocabFileParser
+ [x] Parse single file
+ [x] Parse multi files
+
+VocabProvider
+ [x] Make vocab
+ [ ] Insert vocab
+
+Vocab
+ [x] Dummy
 ```
-
-![PHPUnit--testdox][testdox]
-
-[testdox]: https://raw.github.com/csm-sem/workflow/master/res/phpunit--testdox.png "PHPUnit--testdox"
 
 
 ## Nice Links
