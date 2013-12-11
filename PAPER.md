@@ -357,7 +357,7 @@ php artisan db:seed
 
 ### Travis CI
 
-Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages.
+Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages, etc. (additional options given here [http://about.travis-ci.org/docs/user/build-configuration/]).
 
 
 
@@ -369,7 +369,8 @@ Short description and instructions to configure Travic CI:
 
 Status: [![Build Status](https://travis-ci.org/csm-sem/workflow.png?branch=master)](https://travis-ci.org/csm-sem/workflow)
 
-Mit der folgenden Konfiguration lassen wir die Tests automatisiert testen:
+To automatically trigger our tests, we use following configuration:
+(Mit der folgenden Konfiguration lassen wir die Tests automatisiert testen:)
 
 ```
 language: php
@@ -399,5 +400,21 @@ script: phpunit
 notifications:
  email: false
 ```
+For proper execution of the tests, you have to configure your environment in ``` .travis.yml```. This file should be found in the root directory of your repository. Under ```language``` you setup the required programming language(s).
+Due to the fact that Laravel is a php framework and we're using phpunit for testing purposes, our programming language is php. Because Laravel requires php version >= 5.3.7, we've defined php version 5.4 and 5.5 as runtime for travis ci.
+The Key Term ```env``` indicates further options for the environment. 
+With ```LARAVEL_ENV=travis``` we're setting up a global server constant, which we can read in php. It is now possible, to load different envirenment settings for database(s) and application(s).
+We're using a simple MySQL database, which we've declared via another constant ```DB=mysql```.
+
+The part ```before_script``` contains commands, running sequentially before testing. The analogous part ```after_script``` contains commands, running after testing.
+
+To indicate that we'd like to have our code tested with phpunit, we've set up the command ```script: phpunit```.
+A further feature is the ```notifications```option, in which you could set up to be notified about your build. As we don't need any notifications, because our build is done within seconds and can be checked immediately after start via web gui, we haven't enabled this feature.
+
+Before testing starts to run, a test environment is set up. Therefore we've declared under the ```before_script```part to create a database named ```vocab_laravel``` with the command ```mysql -e 'create database vocab_laravel;'```. The script afterwords changes to ```/www```, the main directory of the laravel project, and installs the required scripts via composer. The next step will be the creation of a scheme with migration data ```php artisan migrate --env=travis``` and the following seeding of the database with test data ```php artisan db:seed --env=travis```.
+
+The pre-test section is done. The tests should now be ready to pass and return a test result. 
+
+After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
 
 Damit Travis die Tests ausführen kann, müssen einige Einstellungen zur Entwicklungsumgebung in der ```.travis.yml``` Datei festlegt werden. Diese Datei befindet sich im Root des Repositories. Mit ```language``` werden die benötigten Programmiersprachen fesgelegtt. Da Laravel ein PHP Framework ist und zum Testen PHPUnit nutzt, setzten wir als Programmiersprache PHP ein. Laravel erfordert eine PHP Version größergleich 5.3.7. Bei Travis kann man multiple Versionen der angegebenen Sprache setzen, sodass wir PHP 5.4 und 5.5. definiert haben. Mit dem Schlüsselbegriff ```env``` werden weitere Einstellungen zur Entwicklungsumgebung angegeben. Wir setzten mit ```LARAVEL_ENV=travis``` eine globale Server-Konstante, die wir in PHP auslesen können. Dadurch ist es nun möglich, dass man diverse Umgebungseinstellungen zu Datenbanken und Applikation laden kann. Als Datenbank nutzen wir eine einfache MySQL Datenbank, die mit einer weiteren Konstanten ```DB=mysql``` festgelegt wird. ```before_script``` beinhaltet Befehle, die vor dem Testen sequentiell ausgeführt werden. ```after_script``` beinhaltet Befehle, die nach dem Testen ausgeführt werden. Mit dem Befehl ```script: phpunit``` wird das eigentliche Testen mit PHPUnit angestossen. Bevor die Tests durchlaufen werden, wird eine Testumgebung aufgebaut. Zu Begin wird mit dem Befehl ```mysql -e 'create database vocab_laravel;'``` eine Datenbank mit dem Namen ```vocab_laravel``` erzeugt. Anschließend wechselt das Script in das Hauptverzeichnis der Laravel Installation und installiert die benötigten Scripte. Daraufhin wird ein Schema über die Migrationsdateien aufgebaut ```php artisan migrate --env=travis``` und mit dem Seeder mit Test-Daten befüllt ```php artisan db:seed --env=travis```. Nach diesem Befehl werden die einzelnen Tests durchgeführt und ein Ergebnis ausgegeben. Nach den Tests wird das Schema aufgehoben und der gesamte Framework Cache geleert. Die ganzen Ergebnise werden in Echtzeit sequentiell auf Travis ausgegeben.
