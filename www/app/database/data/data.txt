@@ -1,4 +1,0 @@
-word;noun;Wort
-bear;noun;Wildtier, Bär, gefährliches Wesen
-science;noun;Wissenschaft, Naturwissenschaft, Forschung
-walk;verb;gehen, laufen, wandern, wandeln, spazieren, spazieren gehen

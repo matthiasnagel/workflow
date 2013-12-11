@@ -1,0 +1,17 @@
+interminable;adjective;endlos, unabsehbar
+assess;verb;beurteilen, bewerten, einschätzen, abschätzen, feststellen, begutachten, abwägen
+intrusion;noun;Verletzung, Störung, Aufdrängen
+expenditure;noun;Ausgaben, Aufwendungen, Kosten, Aufwand, Verbrauch, Verwendung
+headway;noun;Fortschritt
+dovetail;noun;Schwalbenschwanz, Zinken, Verzahnung
+slush;noun;Schneematsch, Matsch, Morast, Kitsch, Patsche
+slush fund;noun;Schwarze Kasse
+stake;noun;Beteiligung, Einsatz, Pfahl, Scheiterhaufen, Einlage, Runge, Pfosten, Pflock
+stake;verb;pfählen, einsetzen
+binder;noun;Ordner, Mappe, Bindemittel, Binder
+trace;verb;zeichen, nachzeichnen, ermitteln, folgen, erkennen, ausfindig machen, skizzieren, nachziehen, herausfinden
+consolidation;noun;Festigung, Zusammenlegung, Vertiefung, Ausbau, Befestigung, Zusammenschluss, Vereinigung
+pigued;adjective;pikiert, gekränkt, verärgert, geweckt
+urgent;adjective;dringend, dringlich, eilig, akut, unaufschiebbar, hartnäckig
+facilitate;verb;erleichtern, ermöglichen, fördern
+exaggerate;verb;übertreiben, verstärken, hervorheben, überzeichnen, aufplustern

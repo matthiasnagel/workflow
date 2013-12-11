@@ -1,0 +1,3 @@
+capability;noun;Fähigkeit, Leistungsfähigkeit, Potenzial, Kompetenz, Befähigung, Begabung
+confer;verb;verleihen, übertragen, beraten, konferieren, zuerkennen, sich besprechen
+consolidate;verb;ausbauen, festigen, vertiefen, befestigen

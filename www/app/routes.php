@@ -17,5 +17,11 @@
 //     return View::make('vocabs')->with('vocabs', $vocabs);
 // });
 
-Route::get('/', 'VocabsController@index');
+Route::get('/', 'TrainerController@index');
+
+Route::get('trainer', 'TrainerController@index');
+Route::get('trainer/reset', 'TrainerController@reset');
+Route::get('trainer/next', 'TrainerController@next');
+Route::post('trainer', 'TrainerController@check');
+
 Route::resource('vocabs', 'VocabsController');

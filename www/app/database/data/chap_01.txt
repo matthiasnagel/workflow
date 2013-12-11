@@ -1,0 +1,55 @@
+executive;noun;Führungskraft, Vorstand, Manager, Exekutive
+executive;adjective;exekutiv, ausübend, leitend
+convey;verb;vermitteln, befördern, übertragen, wiedergeben, vortragen
+dumbfound;adjective;sprachlos, entgeistert, perplex
+summon;verb;herbeirufen, laden, einladen, zitieren, aufrufen, bestellen, beordern, befehlen, einberufen, holen
+courteous;adjective;höflich, zuvorkommen
+warrant;verb;rechtfertigen, gewährleisten, verdienen, wetten, legitimieren
+warrant;noun;Garantie, Haftbefehl, Befugnis, Ermächtigung, Hinrichtungsbefehl, Durchsuchungsbefehl, Patent, Berechtigung
+crisis;noun;Krise, Notlagen, Notstand
+plum;noun;Pflaume, Zwetschge
+emerge;verb;entstehen, auftauchen, hervortreten, aufkommen, heraustreten, sich abzeichnen, vortreten
+enticing;adjective;verlockend, verführerisch, lockend, bestechend
+vanquish;verb;besiegen, bezwingen, siegen über
+vanish;verb;verschwinden, schwinden, entschwinden, untergehen, verfliegen, sich verflüchtigen, sich verlieren, sich legen
+trajectory;noun;Flugbahn, Kurve
+dogged;adjective;verbissen, hartnäckig, zäh, stur
+rot;noun;Fäulnis, Moder
+rot;verb;verrotten, verfaulen, faulen, verwesen, modern
+balk;verb;scheuen, vereiteln, zurückschrecken, hemmen
+shuffle;verb;mischen, schlurfen, umbesetzen, umbilden
+shuffle;noun;Schlurfen, Schieber, Umbesetzung, Umstellung
+board;noun;Aufsichtsrat, Vorstand, Tafel, Platte, Verpflegung, Pension, Brett
+board;verb;besteigen, einsteigen, entern
+subordinate;verb;unterordnen, unterstellen
+subordinate;adjective;untergeordnet, abhängig, untergeben
+subordinate;noun;Untergebene
+paraphrase;noun;Umschreibung, Interpretation
+paraphrase;verb;umschreiben, interpretieren
+sober;adjective;nüchtern, schlicht, ernst, vernünftig, solide, dezent, gesetzt
+sober;verb;ernüchtern, nüchtern machen
+stoop;noun;Treppe, Buckel, krummer Rücken
+stopp;verb;sich bücken, sich beugen
+necktie;noun;Krawatte, Schlips
+stride;verb;schreiten
+stride;noun;Schritt, Gang, Fortschritt
+modicum;noun;Minimum, Hauch, Körnchen
+creep;verb;kriechen, schleichen, klettern
+creep;noun;Mucker, Leisetreter, Duckmäuser, Moral-Feigling
+sheaf;noun;Bündel, Garbe, Packung
+eager;adjective;eifrig, begierig, gespannt, bereitwillig, lebhaft, sehnsüchtig
+discern;verb;erkennen, wahrnehmen, entdecken
+sleuthing;noun;Detektivarbeit
+fret;verb;sich Sorgen machen, sich ärgern, sich grämen, unruhig sein, sich abnutzen
+inquisitiveness;noun;Neugier, Wissbegierde
+squint;verb;schielen, blinzeln, durchschauen
+oblivious;adjective;nicht bewusst, ahnungslos, nicht wahrnehmend
+focal;adjective;fokal, im Brennpunkt stehend
+peer;verb;spähen, schauen, starren
+pet peeve;noun;Lieblingsärgernis
+tray;noun;Tablett, Brett, Servierbrett
+blur;noun;verschwommener Fleck
+blur;verb;verwischen, verschmieren, trüben, verzerren, verschwommen machen
+anxiety;noun;Angst, Ängstlichkeit, Sorge, Besorgnis, Bange, Bedenklichkeit
+moratorium;noun;Zahlungsaufschub, Stopp, Stillhalteabkommen, Vertragsabbruch, Ende, Begrabung
+shrewd;adjective;klug, schlau, scharfsinnig, gewitzt, geschickt, raffiniert, scharf, clever, hellsichtig, wissend, genau, durchdringend

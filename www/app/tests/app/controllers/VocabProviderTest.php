@@ -38,5 +38,9 @@ class VocabProviderTest extends TestCase {
         // if test was successful, just delete the entry
         $inDb[0]->delete();
     }
+    
+//    public function testGetTotalVocabNumber() {
+//        $this->assertEquals($this->vocabProvider->getTotalVocabNumber(), 2);
+//    }
 
 }

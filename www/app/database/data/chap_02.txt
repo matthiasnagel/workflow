@@ -1,0 +1,14 @@
+fiscal;noun;Geschäftsjahr
+fiscal;adjective;steuerlich
+consolidated;adjective;zusammengelegt, vertieft
+accumulate;verb;ansammeln, anhäufen, anfallen, sich ansammeln, zusammenkommen
+depreciation;noun;Abschreibung, Entwertung, Minderung, Verschlechterung, Herabwürdigung
+amortization;noun;Abschreibung
+despite;preposition;trotz, ungeachtet, bei
+bliss;noun;Glückseligkeit, Seligkeit, Wonne, Glück
+blissful;adjective;selig, glückselig, wonnevoll, wonnig, paradiesisch, höchste
+pavement;noun;Pflaster, Bürgersteig, Gehsteig
+shallow;adjective;oberflächlich, flach, seicht, hohl
+superficial;adjective;oberflächlich, vordergründig, äußerlich
+cursorily;adjective;oberflächlich, flüchtig
+misperception;noun;Missverständnis
