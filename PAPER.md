@@ -2,6 +2,26 @@
 
 System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http://kriha.de/).
 
+
+
+#Abstract
+
+neg:
+- many projects are chaotic 
+- working without conventions
+- various configs
+- no deployment
+- no (real, proveable) tests
+- worse code quality due to lack of architecture (quick & dirty, straight forward)
+
+pos:
+- planning phase
+- principles of tdd + value of tdd
+- Continous integration + value of ci
+- know your tools
+- aspect of intro time for improved workflow
+
+
 ## Motivation
 
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
@@ -337,7 +357,7 @@ php artisan db:seed
 
 ### Travis CI
 
-Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repo on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as private ones. It offers also a bright range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages.
+Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages.
 
 
 
