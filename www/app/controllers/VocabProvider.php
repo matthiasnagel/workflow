@@ -30,10 +30,7 @@ class VocabProvider extends BaseController {
     }
     
     public function provide($number, array $ignoredIds) {
-        $ignoredIds[] = (string)0;
-        foreach ($ignoredIds as $key => $id ) {
-            $ignoredIds[$key] = (int)$ignoredIds[$key];
-        }
+        array_push($ignoredIds, 0);
         $vocabs = Vocab::whereNotIn('id', $ignoredIds)->take($number)->get()->all();
         return $vocabs;
     }

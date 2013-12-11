@@ -44,11 +44,6 @@ class VocabTrainer extends BaseController {
             'overallCorrect' => $this->getNumberOfOverallTotalCorrectSolutions(),
         );
 
-        // echo "<pre>";
-        // var_dump('currentVocab', compact('data'));
-        // echo "</pre>";
-        // exit();
-
         return View::make('trainer.index', compact('data'));
     }
 
@@ -83,7 +78,7 @@ class VocabTrainer extends BaseController {
     }
 
     private function loadSession() {
-        $this->usedVocabIds = Session::get('usedVocabIds', []);
+        $this->usedVocabIds = Session::get('usedVocabIds', function() {return array();});
         $this->bufferedVocabs = Session::get('bufferedVocabs', []);
         $this->currentVocab = Session::get('currentVocab', null);
         $this->currentVocabFails = Session::get('currentVocabFails', 0);
@@ -114,10 +109,11 @@ class VocabTrainer extends BaseController {
     }
 
     private function dispenseVocabs($amount) {
-        $this->bufferedVocabs = $this->provider->provide($amount, $this->usedVocabIds);
+        $this->bufferedVocabs = $this->provider->provide($amount, (array) $this->usedVocabIds);
         foreach ($this->bufferedVocabs as $used) {
-            array_push($this->usedVocabIds, $used->id);
+            $this->usedVocabIds[] = $used->id;
         }
+
     }
 
 }
