@@ -25,9 +25,9 @@ pos:
 ## Motivation
 
 The first steps of professional software development is the version conrol of your software via subversion or git. But big projects need much more than just version control to work efficient and clean. To have an overview of neccessary tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (tdd) and the continous integration process. With our insights, we'd like to develop an ideal workflow. On the basis of a small software project, we'd like to test and evaluate our developed workflow. 
-
+```
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
-
+```
 
 ## Planung
 
@@ -357,9 +357,13 @@ php artisan db:seed
 
 ## Continuous Integration
 
+### What is Continuous Integration
+
 ### Travis CI
 
-Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages, etc. (additional options given here [http://about.travis-ci.org/docs/user/build-configuration/]).
+#### About Travis CI
+
+Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages, etc. (additional options given here [http://about.travis-ci.org/docs/user/build-configuration/]).
 
 
 
@@ -418,5 +422,6 @@ Before testing starts to run, a test environment is set up. Therefore we've decl
 The pre-test section is done. The tests should now be ready to pass and return a test result. 
 
 After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
+
 
 Damit Travis die Tests ausführen kann, müssen einige Einstellungen zur Entwicklungsumgebung in der ```.travis.yml``` Datei festlegt werden. Diese Datei befindet sich im Root des Repositories. Mit ```language``` werden die benötigten Programmiersprachen fesgelegtt. Da Laravel ein PHP Framework ist und zum Testen PHPUnit nutzt, setzten wir als Programmiersprache PHP ein. Laravel erfordert eine PHP Version größergleich 5.3.7. Bei Travis kann man multiple Versionen der angegebenen Sprache setzen, sodass wir PHP 5.4 und 5.5. definiert haben. Mit dem Schlüsselbegriff ```env``` werden weitere Einstellungen zur Entwicklungsumgebung angegeben. Wir setzten mit ```LARAVEL_ENV=travis``` eine globale Server-Konstante, die wir in PHP auslesen können. Dadurch ist es nun möglich, dass man diverse Umgebungseinstellungen zu Datenbanken und Applikation laden kann. Als Datenbank nutzen wir eine einfache MySQL Datenbank, die mit einer weiteren Konstanten ```DB=mysql``` festgelegt wird. ```before_script``` beinhaltet Befehle, die vor dem Testen sequentiell ausgeführt werden. ```after_script``` beinhaltet Befehle, die nach dem Testen ausgeführt werden. Mit dem Befehl ```script: phpunit``` wird das eigentliche Testen mit PHPUnit angestossen. Bevor die Tests durchlaufen werden, wird eine Testumgebung aufgebaut. Zu Begin wird mit dem Befehl ```mysql -e 'create database vocab_laravel;'``` eine Datenbank mit dem Namen ```vocab_laravel``` erzeugt. Anschließend wechselt das Script in das Hauptverzeichnis der Laravel Installation und installiert die benötigten Scripte. Daraufhin wird ein Schema über die Migrationsdateien aufgebaut ```php artisan migrate --env=travis``` und mit dem Seeder mit Test-Daten befüllt ```php artisan db:seed --env=travis```. Nach diesem Befehl werden die einzelnen Tests durchgeführt und ein Ergebnis ausgegeben. Nach den Tests wird das Schema aufgehoben und der gesamte Framework Cache geleert. Die ganzen Ergebnise werden in Echtzeit sequentiell auf Travis ausgegeben.
