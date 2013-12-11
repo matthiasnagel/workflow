@@ -1,4 +1,4 @@
-# Continuous Integration in OpenSource Software Development
+# Test Driven Design with Continuous Integration in Open Source Projects
 
 System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http://kriha.de/).
 
@@ -334,6 +334,12 @@ php artisan db:seed
 
 
 ## Continuous Integration
+
+### Travis CI
+
+Travis CI is a hosted continous intergration software with which you can trigger automated builds by every change in your repo on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as private ones. It offers also a bright range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages.
+
+
 
 Travis CI Repository: [https://travis-ci.org/csm-sem/workflow](https://travis-ci.org/csm-sem/workflow)
 
