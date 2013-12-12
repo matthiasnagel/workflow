@@ -24,7 +24,7 @@ pos:
 
 ## Motivation
 
-The first step of professional software development is the version control of your software via a tool like subversion or git. But big projects need much more than just version control to work efficient and clean. To have an overview of neccessary tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (tdd) and the continuous integration process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of a small vocabulary trainer software project.
+The first step of professional software development is the version control of your software via a tool like subversion or git. But big projects need much more than just version control to work efficiently and clean. To have an overview of neccessary tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (tdd) and the continuous integration process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of a small vocabulary trainer software project.
 ```
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
 ```
@@ -357,7 +357,16 @@ php artisan db:seed
 
 ## Continuous Integration
 
-### What is Continuous Integration
+### What is Continuous Integration?
+
+Continuous Integration (CI) is a software development practice for testing the code base constantly and completely after new changes have been made. This process increases the quality of your software and reduces time needed for testing.
+The Idea of CI is the quick integration of code changes, improvements and new features made by the developer. As soon as the developer has integrated his changes into the version control system, the software will be compiled completely new and totally covered with automatic unit tests.
+
+The advantages of continuous integration:
+
+* Integration problems will be detected constantly - not just one day before a release
+* Developers can return quickly to an old code base without investing to much time in bug hunting
+* All changes will be tested immediately
 
 ### Travis CI
 
@@ -424,4 +433,6 @@ The pre-test section is done. The tests should now be ready to pass and return a
 After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
 
 
+
 Damit Travis die Tests ausführen kann, müssen einige Einstellungen zur Entwicklungsumgebung in der ```.travis.yml``` Datei festlegt werden. Diese Datei befindet sich im Root des Repositories. Mit ```language``` werden die benötigten Programmiersprachen fesgelegtt. Da Laravel ein PHP Framework ist und zum Testen PHPUnit nutzt, setzten wir als Programmiersprache PHP ein. Laravel erfordert eine PHP Version größergleich 5.3.7. Bei Travis kann man multiple Versionen der angegebenen Sprache setzen, sodass wir PHP 5.4 und 5.5. definiert haben. Mit dem Schlüsselbegriff ```env``` werden weitere Einstellungen zur Entwicklungsumgebung angegeben. Wir setzten mit ```LARAVEL_ENV=travis``` eine globale Server-Konstante, die wir in PHP auslesen können. Dadurch ist es nun möglich, dass man diverse Umgebungseinstellungen zu Datenbanken und Applikation laden kann. Als Datenbank nutzen wir eine einfache MySQL Datenbank, die mit einer weiteren Konstanten ```DB=mysql``` festgelegt wird. ```before_script``` beinhaltet Befehle, die vor dem Testen sequentiell ausgeführt werden. ```after_script``` beinhaltet Befehle, die nach dem Testen ausgeführt werden. Mit dem Befehl ```script: phpunit``` wird das eigentliche Testen mit PHPUnit angestossen. Bevor die Tests durchlaufen werden, wird eine Testumgebung aufgebaut. Zu Begin wird mit dem Befehl ```mysql -e 'create database vocab_laravel;'``` eine Datenbank mit dem Namen ```vocab_laravel``` erzeugt. Anschließend wechselt das Script in das Hauptverzeichnis der Laravel Installation und installiert die benötigten Scripte. Daraufhin wird ein Schema über die Migrationsdateien aufgebaut ```php artisan migrate --env=travis``` und mit dem Seeder mit Test-Daten befüllt ```php artisan db:seed --env=travis```. Nach diesem Befehl werden die einzelnen Tests durchgeführt und ein Ergebnis ausgegeben. Nach den Tests wird das Schema aufgehoben und der gesamte Framework Cache geleert. Die ganzen Ergebnise werden in Echtzeit sequentiell auf Travis ausgegeben.
+
