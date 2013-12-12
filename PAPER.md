@@ -6,6 +6,9 @@ System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http:
 
 #Abstract
 
+As a developer you may know many projects which are completely chaotic in many different ways. Many companies and teams are working without any conventions, without having a clearly structured workflow. This leads to big problems when it comes to the point where code is merged or tested. This situation brings a lot of conflict potential and leads to losing a lot of time. Another point for losing much time is working with various environment configurations. One team member runs the code on another version than his collegue. They could waste a lot of time finding the reason for not running a specific feature which works at A but not at B. Another point are code sections which aren't tested with real prove or missing deployment processes. Last but not least worse code quality due to lack of clean architecture because you're coding quick and dirty as well as straight forward without thinking about future changes or code enhancements.      
+To avoid the presented negatives you should begin your project with a planning phase where nearly every detail is discussed so that every team member knows what it's about. One of the most important things in software projects is the provable coverage of tested code. You should know test driven development but at least understand what unit testing is and how to use it. A big plus for a project is continuous integration and knowledge about your workflow tools.  
+
 neg:
 - many projects are chaotic 
 - working without conventions
