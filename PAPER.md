@@ -374,7 +374,7 @@ For further reading have a look at this [CI-article](http://martinfowler.com/art
 
 #### About Travis CI
 
-Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of supported programming languages (e.g. PHP, Java, C, Ruby, etc. full list can be seen under [http://about.travis-ci.org/]). There's also the possibility to test your project against different environments, because Travis provides various options to set up your runtime, data storages, etc. (additional options given here [http://about.travis-ci.org/docs/user/build-configuration/]).
+Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of [supported programming languages](http://about.travis-ci.org/) (e.g. PHP, Java, C, Ruby, etc.). There's also the possibility to test your project against different environments, because Travis provides [various options](http://about.travis-ci.org/docs/user/build-configuration/) to set up your runtime, data storages, etc.
 
 
 
