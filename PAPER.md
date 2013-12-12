@@ -368,6 +368,8 @@ The advantages of continuous integration:
 * Developers can return quickly to an old code base without investing to much time in bug hunting
 * All changes will be tested immediately
 
+For further reading have a look at this [CI-article](http://martinfowler.com/articles/continuousIntegration.html) by Martin Fowler (we think it is probably the best out there).
+
 ### Travis CI
 
 #### About Travis CI
