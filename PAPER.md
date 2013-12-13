@@ -1,4 +1,4 @@
-# Test Driven Design with Continuous Integration in Open Source Projects
+# Test Driven Development with Continuous Integration in Open Source Projects
 
 System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http://kriha.de/).
 
@@ -6,32 +6,23 @@ System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http:
 
 #Abstract
 
-As software developers, we've all experienced it in many different ways: an unstructured and even chaotic project environment. Sadly, many development teams are working without clearly defined conventions, without having any sort of cleanly structured **workflow**. Just like everyone is doing their own style in their own setup and time is wasted to build bridges between these varying setups. Code isn't tested in any serious way, but the author's quick and dirty __works for me__ experience. Another sad but common example is the lack of time and thoughts spent in the modelling and architecture process. These are only a minimal number of the developer's daily life encountered problems.
+As software developers, we've all experienced it in many different ways: an unstructured and even chaotic project environment. Sadly, many development teams are working without clearly defined conventions, without having any sort of cleanly structured **workflow**. Just like everyone is doing their own style in their own setup and time is wasted to build bridges between these varying setups. Code isn't tested in any serious way, but the author's quick and dirty __works for me__ experience. Another sad but common example is the lack of time and thoughts spent on the modelling and architecture process. These are only a minimal number of the developer's daily life encountered problems.
 
-The described naturally leads to serious problems at the latest, when you get to the point where sourcecode has to be merged or tested or somebody else has to use or further develop existing code. On top, these scenarios often tend to carry a lot of (social) conflict potential, which will eventually lead to lose an unnecessary amount of valuable time and last but not least driving the involved people crazy.
+The described naturally leads to serious problems at the latest, when you get to the point where sourcecode has to be merged or tested or somebody else has to use or further develop existing code. On top, these scenarios often tend to carry a lot of (social) conflict potential, which will eventually lead to the loss of an unnecessary amount of valuable time and last but not least they will drive the involved people crazy.
 
-To avoid a big number of these problems, you should start your project with a solid planning phase. At that time, it's important to make some things clear: what versions of tools, what language, what IDE, what repository, what OS, etc. are you going to use. Make sure, that everybody in your team is willing to give a quality committ concerning the contributed work - it has to be suiting the defined standards. An actually important thing about software is, that you can provide a certain quality of code. You will have an easy time to prove this quality by covering your functional code by unit tests - guaranteed results for certain input at runtime, that's something. We've experienced unit testing, especially test driven design as a very positive experience, that provides a direct return of investment, measurable in code quality. 
+To avoid a big number of these problems, you should start your project with a solid planning phase. At that time, it's important to make some things clear: what versions of tools, what language, what IDE, what repository, what OS, etc. are you going to use. Make sure, that everybody in your team is willing to give a quality commitment concerning the work contributed - it has to be suiting the defined standards.
+
+An actually important thing about software is, that you can provide a certain quality of code. You will have an easy time to prove this quality by covering your functional code by unit tests - guaranteed results for a certain input at runtime, that's something. We've experienced unit testing, especially test driven design as a very positive experience, that provides a direct return of investment, measurable in code quality. 
+
 Another workflow enhancement is continuous integration - a runtime simulating environment which is shared by a developer team to see code in realistic action. After each and every commit - there will be no more trash code carried from revision to revision, but the possibility to directly work on fixing it.
 
-neg:
-- many projects are chaotic 
-- working without conventions
-- various configs
-- no deployment
-- no (real, proveable) tests
-- worse code quality due to lack of architecture (quick & dirty, straight forward)
+In the following we give an introduction to these two improvement aspects in the context of our vocabulary trainer application.
 
-pos:
-- planning phase
-- principles of tdd + value of tdd
-- Continous integration + value of ci
-- know your tools
-- aspect of intro time for improved workflow
-
+# Kickoff
 
 ## Motivation
 
-The first step of professional software development is the version control of your software via a tool like subversion or git. But big projects need much more than just version control to work efficiently and clean. To have an overview of neccessary tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (tdd) and the continuous integration process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of a small vocabulary trainer software project.
+The first step of professional software development is the version control of your software with a repository management tool like subversion or git. But big projects need much more than just versioning control to work efficiently and cleanly. To have an overview of helpful tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (TDD) and the continuous integration (CI) process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of the development of a small vocabulary trainer application.
 ```
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
 ```
