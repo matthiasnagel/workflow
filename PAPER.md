@@ -206,15 +206,10 @@ class Vocab extends Eloquent {
 
 # TDD and PHP Unit
 
-## Get laravel's ExampleTest running:
-* A simple `composer update` fixed the dependency problems for me.
-
-**Note**: Just **do not** try to get the unit tests running within your IDE, Laravel unit tests are meant to be run in shell only.
-
 ## Writing first test and functionality:
 
 ### Vocab Provider
-* What we wanna do is to insert and read vocab records from the db. This is easy using laraven's **eloquent object relation mapping**:
+* What we wanna do is to insert and read vocabulary records from the db. This is easy using laravel's **eloquent object relation mapping**. Let's say what we want to have is a provider class which will be working as our db-interface (it will provide vocabs, which are queried from the database):
 
 ```
 class VocabProvider extends BaseController {
