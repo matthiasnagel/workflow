@@ -65,6 +65,15 @@ Other services:
 
 ***
 
+
+
+
+
+
+
+
+
+
 # Setting up the environment
 
 ## Installations
@@ -157,6 +166,7 @@ This call generates a migration class "CreateVocabTable" with an easy to handle 
 **Note**: This is a one-time procedure which won't be repeated after a common repository pull.
 
 * Edit the migration. Initially, let's say
+
 ```
     public function up() {
         Schema::create('vocabs', function($table) {
@@ -172,9 +182,10 @@ This call generates a migration class "CreateVocabTable" with an easy to handle 
         Schema::dropIfExists('vocabs');
     }
 ```
+
 * Now run `php artisan migrate` in the shell. This will actually create the table for the `vocab_laravel` db.
 
-**Note**: If you get an error here, you've forgot something during the configuration of the Laravel environment.
+**Note**: If you get an error here, you've forgoten something during the configuration of the Laravel environment.
 
 **Note**: If you alter something in your migration methods, just run the command again. If you realize, you've done something stupid, just rollback to the previous migration state via `php artisan migrate:rollback`.
 
@@ -189,15 +200,22 @@ class Vocab extends Eloquent {
 
 * That's pretty much it - you can go ahead and create a view for this model following the [instructions](http://laravel.com/docs/quick).
 
-## Get the ExampleTest running
+
+
+***
+
+# TDD and PHP Unit
+
+## Get laravel's ExampleTest running:
 * A simple `composer update` fixed the dependency problems for me.
 
 **Note**: Just **do not** try to get the unit tests running within your IDE, Laravel unit tests are meant to be run in shell only.
 
-## Writing first functionality and unit tests
+## Writing first test and functionality:
 
 ### Vocab Provider
-* What we wanna do is to insert and read vocab records from the db. This is easy using the eloquent ORM:
+* What we wanna do is to insert and read vocab records from the db. This is easy using laraven's **eloquent object relation mapping**:
+
 ```
 class VocabProvider extends BaseController {
 
@@ -214,112 +232,8 @@ class VocabProvider extends BaseController {
     }
 }
 ```
+
 This methods takes a record of a single vocab and inserts it in the vocab table.
-
-***
-# TDD and PHP Unit
-
-***
-# CI and Travis
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### PHPUnit Options
-
-In PHPUnit, there are different options for getting testing visible in the shell.
-
-####1.) phpunit --debug
-
-Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
-
-```
-phpunit --debug
-PHPUnit 3.7.28 by Sebastian Bergmann.
-
-Configuration read from ..../workflow/www/phpunit.xml
-
-
-Starting test 'VocabFileParserTest::testParseSingleFile'.
-.
-Starting test 'VocabFileParserTest::testParseMultiFiles'.
-.
-Starting test 'VocabProviderTest::testMakeVocab'.
-.
-Starting test 'VocabProviderTest::testInsertVocab'.
-E
-Starting test 'VocabTest::testDummy'.
-.
-
-Time: 216 ms, Memory: 9.00Mb
-
-There was 1 error:
-
-1) VocabProviderTest::testInsertVocab
-PDOException: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '127.0.0.1' (61)
-```
-
-
-####2.) phpunit --tap
-
-Report test execution progress in TAP format.
-
-```
-phpunit --tap
-TAP version 13
-ok 1 - VocabFileParserTest::testParseSingleFile
-ok 2 - VocabFileParserTest::testParseMultiFiles
-ok 3 - VocabProviderTest::testMakeVocab
-not ok 4 - Error: VocabProviderTest::testInsertVocab
-ok 5 - VocabTest::testDummy
-1..5
-```
-
-
-####3.) phpunit --testdox
-
-Test execution progress gets reported in TestDox format to the shell.
-
-```
-phpunit --testdox
-PHPUnit 3.7.28 by Sebastian Bergmann.
-
-Configuration read from ..../workflow/www/phpunit.xml
-
-VocabFileParser
- [x] Parse single file
- [x] Parse multi files
-
-VocabProvider
- [x] Make vocab
- [ ] Insert vocab
-
-Vocab
- [x] Dummy
-```
-
-
-## Nice Links
-* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
-* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
-* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
-
-
-### The actual Vocab Trainer
-
-## App
-
-
 
 * To test this method, we pretty much insert a record and look it up afterwards, if it's there, the test is successful:
 ```
@@ -358,6 +272,122 @@ class VocabProviderTest extends TestCase {
     }
 }
 ```
+
+
+
+
+
+
+
+
+
+
+## Some advanced PHPUnit Options for command line usage
+
+In PHPUnit, there are different options for getting testing visible in the shell.
+
+###1.) phpunit --debug
+
+Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
+
+```
+phpunit --debug
+PHPUnit 3.7.28 by Sebastian Bergmann.
+
+Configuration read from ..../workflow/www/phpunit.xml
+
+
+Starting test 'VocabFileParserTest::testParseSingleFile'.
+.
+Starting test 'VocabFileParserTest::testParseMultiFiles'.
+.
+Starting test 'VocabProviderTest::testMakeVocab'.
+.
+Starting test 'VocabProviderTest::testInsertVocab'.
+E
+Starting test 'VocabTest::testDummy'.
+.
+
+Time: 216 ms, Memory: 9.00Mb
+
+There was 1 error:
+
+1) VocabProviderTest::testInsertVocab
+PDOException: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '127.0.0.1' (61)
+```
+
+
+###2.) phpunit --tap
+
+Report test execution progress in TAP format.
+
+```
+phpunit --tap
+TAP version 13
+ok 1 - VocabFileParserTest::testParseSingleFile
+ok 2 - VocabFileParserTest::testParseMultiFiles
+ok 3 - VocabProviderTest::testMakeVocab
+not ok 4 - Error: VocabProviderTest::testInsertVocab
+ok 5 - VocabTest::testDummy
+1..5
+```
+
+
+###3.) phpunit --testdox
+
+Test execution progress gets reported in TestDox format to the shell.
+
+```
+phpunit --testdox
+PHPUnit 3.7.28 by Sebastian Bergmann.
+
+Configuration read from ..../workflow/www/phpunit.xml
+
+VocabFileParser
+ [x] Parse single file
+ [x] Parse multi files
+
+VocabProvider
+ [x] Make vocab
+ [ ] Insert vocab
+
+Vocab
+ [x] Dummy
+```
+
+
+***
+# CI and Travis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Nice Links
+* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
+* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
+* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
+
+
+### The actual Vocab Trainer
+
+## App
+
+
+
+
 
 ### Database Migration and Seeding
 
