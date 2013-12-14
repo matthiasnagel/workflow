@@ -2,6 +2,9 @@
 
 System Engineering und Management, [Prof. Walter Kriha](http://kriha.de/), WS 13-14, HdM Stuttgart
 
+### About this document
+The following has to be read as a working document, since we've added and updated its parts over time. It's not meant to be a scientific paper. We've just documented what we've done during the semester and how we've experienced a couple of things that we handled. Sources are direclty hyperlinked in the text.
+
 ***
 
 #Abstract
@@ -19,48 +22,26 @@ Another workflow enhancement is continuous integration - a runtime simulating en
 In the following we give an introduction to these two improvement aspects in the context of our vocabulary trainer application.
 
 ***
+
 # Kickoff
 
 ## Motivation
 
 The first step of professional software development is the version control of your software with a repository management tool like subversion or git. But big projects need much more than just versioning control to work efficiently and cleanly. To have an overview of helpful tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (TDD) and the continuous integration (CI) process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of the development of a small vocabulary trainer application.
 
-
-***
-# Setting up the environment
-
-***
-# TDD and PHP Unit
-
-***
-# CI and Travis
-
-
-
-```
-Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
-```
-
-## Planung
-
-* Untersuchung von großen OpenSource Projekten anhand von [GitHub](http://github.com/) und [Travis-CI](https://travis-ci.org/).
-* Welche Tools werden eingesetzt? Welche Services werden eingesetzt? Unterschiede? Performance? Vor- und Nachteile?
-* Aufsetzen einer testgetriebenen Software (Website) auf GitHub und Travis-CI.
-
 ## Brainstorming
 
-### App
+### about the App
 
-Possible test driven developed (demo-)application could be a (simple) vocabulary trainer, which accesses a vocab database (prolly a single table), can parse *.csv files or other input formats, etc. This simple application would provide a perfect environment for getting started in test driven dev plus would be easy to be overviewed in the context of auto-deployment, integration testing, etc. 
+A possible test driven developed demo application could be a (simple) vocabulary trainer, which accesses a vocab database (a single table should do it), can parse *.csv files or other input formats, etc. This simple application would provide a perfect environment for getting started in TDD plus would be easy to be overviewed in the context of automated deployment, integration testing, and so on. 
 
-### Tools
+### about possible Tools
 
-Package Manager und Dependency Management:
+Package and dependency management:
 
 * [npm](http://nodejs.org/) (node.js)
 * [Bundler](http://bundler.io/) ([bundler/bundler](https://github.com/bundler/bundler)) (ruby gem)
 * [Composer](http://getcomposer.org/) ([composer/composer](https://github.com/composer/composer)) (php)
-* …
 * [Homebrew](http://brew.sh/) ([mxcl/homebrew](https://github.com/mxcl/homebrew)) (osx), [Apt](https://wiki.debian.org/Apt) (linux)
 
 Automatisierung:
@@ -84,6 +65,20 @@ Test Driven Development:
 * [BitBucket](https://bitbucket.org/)
 * [Travis-CI](https://travis-ci.org/)
 * …
+
+
+***
+# Setting up the environment
+
+***
+# TDD and PHP Unit
+
+***
+# CI and Travis
+
+
+
+
 
 
 ## Installation
