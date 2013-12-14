@@ -5,6 +5,9 @@ System Engineering und Management, [Prof. Walter Kriha](http://kriha.de/), WS 13
 ### About this document
 The following has to be read as a working document, since we've added and updated its parts over time. It's not meant to be a scientific paper. We've just documented what we've done during the semester and how we've experienced a couple of things that we handled. Sources are direclty hyperlinked in the text.
 
+### Contents
+tbd
+
 ***
 
 #Abstract
@@ -53,8 +56,8 @@ Automation:
 
 Test Driven Development:
 
-* [PHPUnit](https://github.com/sebastianbergmann/phpunit/) (php)
-* [Jasmine](http://pivotal.github.io/jasmine/) ([pivotal/jasmine](https://github.com/pivotal/jasmine)) (javascript)
+* [PHPUnit](https://github.com/sebastianbergmann/phpunit/) PHP Unit is **the established** framework for unit testing of php code. It provides functionality equivalent to JUnit plus another set of advanced features, such as object mocking.
+* [Jasmine](http://pivotal.github.io/jasmine/) ([pivotal/jasmine](https://github.com/pivotal/jasmine))
 
 Other services:
 
@@ -65,6 +68,7 @@ Other services:
 
 ***
 
+### Decisions
 
 
 
@@ -206,7 +210,7 @@ class Vocab extends Eloquent {
 
 # TDD and PHP Unit
 
-## Writing first test and functionality:
+## Writing a first test and functionality:
 
 ### Vocab Provider
 * What we wanna do is to insert and read vocabulary records from the db. This is easy using laravel's **eloquent object relation mapping**. Let's say what we want to have is a provider class which will be working as our db-interface (it will provide vocabs, which are queried from the database):
@@ -271,7 +275,7 @@ class VocabProviderTest extends TestCase {
 
 ## Test Driven Development
 
-It's okay to do it as above, if you have methods of about 5 lines of code with no side-effects possible. It's better practice though and will eventually become worth it, to first write the test and then write the method itself. This order is promoted by the paradigm of **test driven development (TTD)**. Also, that's pretty much what it is all about - first write a test, then write the method, for which you've written the test. Then, go on with the next method, and so on.
+It's okay to do it as above, if you have methods of about 5 lines of code with no side-effects possible. It's better practice though and will eventually become worth it, to first write the test and then write the method itself. This order is promoted by the paradigm of **test driven development (TTD)**. Also, that's pretty much what it is all about - first write a test, then write the method, for which you've written the test. Then, go on with the next method, and so on. During the development process we strictly did it in the TTD-order, which was a bit hard at first but we've directly felt the payoff: You think about what a method is supposed to do, then you write the test with a couple of assertions which are supposed to check the output to certain inputs. Finally, you write your method and run the test. It's a bit like you are forced into writing good code, since you will implement the exact thing you've thought about at first and which will be checked by the test.
 
 ## Nice Links concerning PHP Unit
 The following links have served well as first references on the topic:
