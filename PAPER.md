@@ -231,6 +231,7 @@ class VocabProvider extends BaseController {
 This methods takes a record of a single vocab and inserts it in the vocab table.
 
 * To test this method, we pretty much insert a record and look it up afterwards, if it's there, the test is successful:
+
 ```
 class VocabProviderTest extends TestCase {
 
@@ -268,10 +269,16 @@ class VocabProviderTest extends TestCase {
 }
 ```
 
+## Test Driven Development
 
+It's okay to do it as above, if you have methods of about 5 lines of code with no side-effects possible. It's better practice though and will eventually become worth it, to first write the test and then write the method itself. This order is promoted by the paradigm of **test driven development (TTD)**. Also, that's pretty much what it is all about - first write a test, then write the method, for which you've written the test. Then, go on with the next method, and so on.
 
+## Nice Links concerning PHP Unit
+The following links have served well as first references on the topic:
 
-
+* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
+* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
+* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
 
 
 
@@ -354,49 +361,6 @@ Vocab
 ***
 # CI and Travis
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Nice Links
-* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
-* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
-* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
-
-
-### The actual Vocab Trainer
-
-## App
-
-
-
-
-
-### Database Migration and Seeding
-
-To create the databse schema just type the following command:
-```
-php artisan migrate
-```
-
-To seed the database with data just type the following command. It uses the parser internally.
-```
-php artisan db:seed
-```
-
-
 ## Continuous Integration
 
 ### What is Continuous Integration?
@@ -412,9 +376,9 @@ The advantages of continuous integration:
 
 For further reading have a look at this [CI-article](http://martinfowler.com/articles/continuousIntegration.html) by Martin Fowler (we think it is probably the best out there).
 
-### Travis CI
+## Travis CI
 
-#### About Travis CI
+### About Travis CI
 
 Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of [supported programming languages](http://about.travis-ci.org/) (e.g. PHP, Java, C, Ruby, etc.). There's also the possibility to test your project against different environments, because Travis provides [various options](http://about.travis-ci.org/docs/user/build-configuration/) to set up your runtime, data storages, etc.
 
@@ -475,8 +439,4 @@ Before testing starts to run, a test environment is set up. Therefore we've decl
 The pre-test section is done. The tests should now be ready to pass and return a test result. 
 
 After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
-
-
-
-Damit Travis die Tests ausführen kann, müssen einige Einstellungen zur Entwicklungsumgebung in der ```.travis.yml``` Datei festlegt werden. Diese Datei befindet sich im Root des Repositories. Mit ```language``` werden die benötigten Programmiersprachen fesgelegtt. Da Laravel ein PHP Framework ist und zum Testen PHPUnit nutzt, setzten wir als Programmiersprache PHP ein. Laravel erfordert eine PHP Version größergleich 5.3.7. Bei Travis kann man multiple Versionen der angegebenen Sprache setzen, sodass wir PHP 5.4 und 5.5. definiert haben. Mit dem Schlüsselbegriff ```env``` werden weitere Einstellungen zur Entwicklungsumgebung angegeben. Wir setzten mit ```LARAVEL_ENV=travis``` eine globale Server-Konstante, die wir in PHP auslesen können. Dadurch ist es nun möglich, dass man diverse Umgebungseinstellungen zu Datenbanken und Applikation laden kann. Als Datenbank nutzen wir eine einfache MySQL Datenbank, die mit einer weiteren Konstanten ```DB=mysql``` festgelegt wird. ```before_script``` beinhaltet Befehle, die vor dem Testen sequentiell ausgeführt werden. ```after_script``` beinhaltet Befehle, die nach dem Testen ausgeführt werden. Mit dem Befehl ```script: phpunit``` wird das eigentliche Testen mit PHPUnit angestossen. Bevor die Tests durchlaufen werden, wird eine Testumgebung aufgebaut. Zu Begin wird mit dem Befehl ```mysql -e 'create database vocab_laravel;'``` eine Datenbank mit dem Namen ```vocab_laravel``` erzeugt. Anschließend wechselt das Script in das Hauptverzeichnis der Laravel Installation und installiert die benötigten Scripte. Daraufhin wird ein Schema über die Migrationsdateien aufgebaut ```php artisan migrate --env=travis``` und mit dem Seeder mit Test-Daten befüllt ```php artisan db:seed --env=travis```. Nach diesem Befehl werden die einzelnen Tests durchgeführt und ein Ergebnis ausgegeben. Nach den Tests wird das Schema aufgehoben und der gesamte Framework Cache geleert. Die ganzen Ergebnise werden in Echtzeit sequentiell auf Travis ausgegeben.
 
