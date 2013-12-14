@@ -44,46 +44,32 @@ Package and dependency management:
 * [Composer](http://getcomposer.org/) ([composer/composer](https://github.com/composer/composer)) (php)
 * [Homebrew](http://brew.sh/) ([mxcl/homebrew](https://github.com/mxcl/homebrew)) (osx), [Apt](https://wiki.debian.org/Apt) (linux)
 
-Automatisierung:
+Automation:
 
 * ~~[Ant](http://ant.apache.org/)~~ (java)
 * [Guard](http://guardgem.org/) ([guard/guard](https://github.com/guard/guard))
 * [Grunt](http://gruntjs.com/) (npm)
-* …
 * Software Deployment (Frontend, Backend)
 
 Test Driven Development:
 
 * [PHPUnit](https://github.com/sebastianbergmann/phpunit/) (php)
 * [Jasmine](http://pivotal.github.io/jasmine/) ([pivotal/jasmine](https://github.com/pivotal/jasmine)) (javascript)
-* …
 
-
-### Services
+Other services:
 
 * [GitHub](http://github.com/)
 * [BitBucket](https://bitbucket.org/)
 * [Travis-CI](https://travis-ci.org/)
 * …
 
-
 ***
+
 # Setting up the environment
 
-***
-# TDD and PHP Unit
+## Installations
 
-***
-# CI and Travis
-
-
-
-
-
-
-## Installation
-
-### System Requirements
+### System requirements
 
 * PHP 5.4.* (Laravel, Composer, Server Configuration) ```php -v```
 
@@ -106,6 +92,9 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 composer -V
 ```
+
+### Laravel
+
 We created a laravel project via composer:
 
 ```
@@ -118,8 +107,6 @@ Install the project dependencies from the [composer.lock](https://github.com/csm
 ```
 composer install
 ```
-
-### Laravel
 
 With the following alias, you can use the short version of artisan:
 
@@ -138,91 +125,9 @@ art serve
 
 **Note**: You need execute-permissions on the artisian php-file.
 
-### PHPUnit Options
+And there you go, your initial laravel framework project is ready to be developed.
 
-In PHPUnit, there are different options for getting testing visible in the shell.
-
-####1.) phpunit --debug
-
-Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
-
-```
-phpunit --debug
-PHPUnit 3.7.28 by Sebastian Bergmann.
-
-Configuration read from ..../workflow/www/phpunit.xml
-
-
-Starting test 'VocabFileParserTest::testParseSingleFile'.
-.
-Starting test 'VocabFileParserTest::testParseMultiFiles'.
-.
-Starting test 'VocabProviderTest::testMakeVocab'.
-.
-Starting test 'VocabProviderTest::testInsertVocab'.
-E
-Starting test 'VocabTest::testDummy'.
-.
-
-Time: 216 ms, Memory: 9.00Mb
-
-There was 1 error:
-
-1) VocabProviderTest::testInsertVocab
-PDOException: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '127.0.0.1' (61)
-```
-
-
-####2.) phpunit --tap
-
-Report test execution progress in TAP format.
-
-```
-phpunit --tap
-TAP version 13
-ok 1 - VocabFileParserTest::testParseSingleFile
-ok 2 - VocabFileParserTest::testParseMultiFiles
-ok 3 - VocabProviderTest::testMakeVocab
-not ok 4 - Error: VocabProviderTest::testInsertVocab
-ok 5 - VocabTest::testDummy
-1..5
-```
-
-
-####3.) phpunit --testdox
-
-Test execution progress gets reported in TestDox format to the shell.
-
-```
-phpunit --testdox
-PHPUnit 3.7.28 by Sebastian Bergmann.
-
-Configuration read from ..../workflow/www/phpunit.xml
-
-VocabFileParser
- [x] Parse single file
- [x] Parse multi files
-
-VocabProvider
- [x] Make vocab
- [ ] Insert vocab
-
-Vocab
- [x] Dummy
-```
-
-
-## Nice Links
-* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
-* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
-* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
-
-
-### The actual Vocab Trainer
-**Note**: Entire process described in the [Wiki](https://github.com/csm-sem/workflow/wiki/Wiki:-The-Coding-Procedure-using-the-Laravel-Framework).
-
-
-## App
+## Inits: The vocab trainer application
 
 ### Architecture
 
@@ -310,6 +215,111 @@ class VocabProvider extends BaseController {
 }
 ```
 This methods takes a record of a single vocab and inserts it in the vocab table.
+
+***
+# TDD and PHP Unit
+
+***
+# CI and Travis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### PHPUnit Options
+
+In PHPUnit, there are different options for getting testing visible in the shell.
+
+####1.) phpunit --debug
+
+Displays debugging information (e.g. ExceptionStack for Exceptions or filepath + linenumber for failed tests) during test execution.
+
+```
+phpunit --debug
+PHPUnit 3.7.28 by Sebastian Bergmann.
+
+Configuration read from ..../workflow/www/phpunit.xml
+
+
+Starting test 'VocabFileParserTest::testParseSingleFile'.
+.
+Starting test 'VocabFileParserTest::testParseMultiFiles'.
+.
+Starting test 'VocabProviderTest::testMakeVocab'.
+.
+Starting test 'VocabProviderTest::testInsertVocab'.
+E
+Starting test 'VocabTest::testDummy'.
+.
+
+Time: 216 ms, Memory: 9.00Mb
+
+There was 1 error:
+
+1) VocabProviderTest::testInsertVocab
+PDOException: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '127.0.0.1' (61)
+```
+
+
+####2.) phpunit --tap
+
+Report test execution progress in TAP format.
+
+```
+phpunit --tap
+TAP version 13
+ok 1 - VocabFileParserTest::testParseSingleFile
+ok 2 - VocabFileParserTest::testParseMultiFiles
+ok 3 - VocabProviderTest::testMakeVocab
+not ok 4 - Error: VocabProviderTest::testInsertVocab
+ok 5 - VocabTest::testDummy
+1..5
+```
+
+
+####3.) phpunit --testdox
+
+Test execution progress gets reported in TestDox format to the shell.
+
+```
+phpunit --testdox
+PHPUnit 3.7.28 by Sebastian Bergmann.
+
+Configuration read from ..../workflow/www/phpunit.xml
+
+VocabFileParser
+ [x] Parse single file
+ [x] Parse multi files
+
+VocabProvider
+ [x] Make vocab
+ [ ] Insert vocab
+
+Vocab
+ [x] Dummy
+```
+
+
+## Nice Links
+* [PHP Unit Manual (Official)](http://phpunit.de/manual/current/en/index.html)
+* [Best PHP Unit Tutorial on the WWW](https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/), especially check [this](https://jtreminio.com/2013/03/unit-testing-tutorial-part-3-testing-protected-private-methods-coverage-reports-and-crap/) chapter!
+* [Testing Private Methods with Mocks](http://stackoverflow.com/questions/5937845/phpunit-private-method-testing)
+
+
+### The actual Vocab Trainer
+
+## App
+
+
 
 * To test this method, we pretty much insert a record and look it up afterwards, if it's there, the test is successful:
 ```
