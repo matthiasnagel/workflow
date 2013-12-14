@@ -19,12 +19,24 @@ Another workflow enhancement is continuous integration - a runtime simulating en
 In the following we give an introduction to these two improvement aspects in the context of our vocabulary trainer application.
 
 ***
-
 # Kickoff
 
 ## Motivation
 
 The first step of professional software development is the version control of your software with a repository management tool like subversion or git. But big projects need much more than just versioning control to work efficiently and cleanly. To have an overview of helpful tools and paradigms for professional software development, we'd like to analyze some open-source tools and services. Our focus will be on test-driven development (TDD) and the continuous integration (CI) process. With our insights, we'd like to develop an ideal workflow. Testing and Evaluation of this workflow will happen on the basis of the development of a small vocabulary trainer application.
+
+
+***
+# Setting up the environment
+
+***
+# TDD and PHP Unit
+
+***
+# CI and Travis
+
+
+
 ```
 Die Versionierung von Software über Subversion oder Git ist der erste Schritt einer professionellen Entwicklung. Große Softwareprojekte gehen jedoch weit über die Versionierung hinaus. Dazu möchten wir große Projekte im OpenSource Bereich untersuchen und bestimmen, welche Architektur, Tools und Services eingesetzt werden. Dabei legen wir den Fokus auf das Test Driven Development und dem Continuous Integration Prozess. Anhand der Ergebnisse wollen wir einen optimalen Workflow erarbeiten und anhand einer Eigenentwicklung testen und evaluieren.
 ```
