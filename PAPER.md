@@ -1,8 +1,8 @@
 # Test Driven Development with Continuous Integration in Open Source Projects
 
-System Engineering und Management (EDV-Nr: 38311) bei [Prof. Walter Kriha](http://kriha.de/).
+System Engineering und Management, [Prof. Walter Kriha](http://kriha.de/), WS 13-14, HdM Stuttgart
 
-
+***
 
 #Abstract
 
@@ -17,6 +17,8 @@ An actually important thing about software is, that you can provide a certain qu
 Another workflow enhancement is continuous integration - a runtime simulating environment which is shared by a developer team to see code in realistic action. After each and every commit - there will be no more trash code carried from revision to revision, but the possibility to directly work on fixing it.
 
 In the following we give an introduction to these two improvement aspects in the context of our vocabulary trainer application.
+
+***
 
 # Kickoff
 
