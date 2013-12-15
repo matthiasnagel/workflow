@@ -384,9 +384,13 @@ For further reading have a look at this [CI-article](http://martinfowler.com/art
 
 ### About Travis CI
 
-Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. It offers also a wide range of [supported programming languages](http://about.travis-ci.org/) (e.g. PHP, Java, C, Ruby, etc.). There's also the possibility to test your project against different environments, because Travis provides [various options](http://about.travis-ci.org/docs/user/build-configuration/) to set up your runtime, data storages, etc.
+Travis CI is a hosted continuous intergration software with which you can trigger automated builds by every change in your repository on github (including master branch and others, or even pull requests). Travis CI supports private github repositories as well as public ones. As a developer you give Travis the rights to checkout the repository and to run the tests in the cloud after you push a commit to your GitHub repository. It is recommended to push small changes, so Travis can run all the tests in the background immediately. If a test fails, you can receive a notification mail via Travis.
 
+### Different environments
 
+Travis offers also a wide range of [supported programming languages](http://about.travis-ci.org/) (e.g. PHP, Java, C, Ruby, etc.). There's also the possibility to test your project against different environments, because Travis provides [various options](http://about.travis-ci.org/docs/user/build-configuration/) to set up your runtime, data storages, etc. It is recommended to apply the production environment, because it doeasn't make sense to run the tests against another environments.
+
+### Application environment
 
 Travis CI Repository: [https://travis-ci.org/csm-sem/workflow](https://travis-ci.org/csm-sem/workflow)
 
@@ -443,6 +447,12 @@ Before testing starts to run, a test environment is set up. Therefore we've decl
 The pre-test section is done. The tests should now be ready to pass and return a test result. 
 
 After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
+
+## GitHub
+
+We highly recommend to use (Git)[http://git-scm.com/], the state of the art tool for version control. Withit you have access to the change history of your code. In the next lines we demonstrate the basic usage of that helpful tool.
+
+Create a new directory ```mkdir myproject```, open it ```cd myproject``` and perform a ```git init``` to create a new git repository. You can propose changes (add it to the index) using ```git add <filename>``` or ```git add *```. This is the first step in the basic git workflow. To actually commit these changes use ```git commit -m "Commit message"```. Now the file is committed to the local HEAD, but not in your remote repository yet. Your changes are now in the HEAD of your local working copy. To send those changes to your remote repository, execute ```git push origin master```. If you have not cloned an existing repository and want to connect your repository to a remote server, you need to add it with ```git remote add origin <server>```. Now you are able to push your changes to the selected remote server. We used a (public GitHub repository)[https://github.com/csm-sem/workflow] for version control and connected it with (Travis CI)[https://travis-ci.org/csm-sem/workflow].
 
 ## Application
 
