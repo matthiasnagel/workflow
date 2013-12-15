@@ -150,6 +150,11 @@ And there you go, your initial laravel framework project is ready to be develope
 
 We use that basic architecture to wrap finally that logic in Laravel.
 
+### Screenshots
+
+[Screenshot 1]: https://raw.github.com/csm-sem/workflow/master/res/screen_1.png "Screenshot 1"
+[Screenshot 2]: https://raw.github.com/csm-sem/workflow/master/res/screen_2.png "Screenshot 2"[Screenshot 3]: https://raw.github.com/csm-sem/workflow/master/res/screen_3.png "Screenshot 3"
+
 ## Initial Tasks
 ### Configure your Laravel environment
 * Make sure, you've gone through all the [steps](https://github.com/csm-sem/workflow/blob/master/PAPER.md#installation) concerning the framework installation.
