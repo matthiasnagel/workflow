@@ -34,11 +34,11 @@ The first step of professional software development is the version control of yo
 
 ## Brainstorming
 
-### about the App
+### About the App
 
 A possible test driven developed demo application could be a (simple) vocabulary trainer, which accesses a vocab database (a single table should do it), can parse *.csv files or other input formats, etc. This simple application would provide a perfect environment for getting started in TDD plus would be easy to be overviewed in the context of automated deployment, integration testing, and so on. 
 
-### about possible Tools
+### About possible Tools
 
 Package and dependency management:
 
