@@ -150,17 +150,6 @@ And there you go, your initial laravel framework project is ready to be develope
 
 We use that basic architecture to wrap finally that logic in Laravel.
 
-## Screenshots
-
-![Screenshot 1](https://raw.github.com/csm-sem/workflow/master/res/screen_1.png)
-
----
-
-![Screenshot 2](https://raw.github.com/csm-sem/workflow/master/res/screen_2.png)
-
----
-![Screenshot 3](https://raw.github.com/csm-sem/workflow/master/res/screen_3.png)
-
 ## Initial Tasks
 ### Configure your Laravel environment
 * Make sure, you've gone through all the [steps](https://github.com/csm-sem/workflow/blob/master/PAPER.md#installation) concerning the framework installation.
@@ -455,3 +444,18 @@ The pre-test section is done. The tests should now be ready to pass and return a
 
 After the tests took place, the section ```after_script``` comes into play. There the scheme is dropped ```php artisan migrate:reset --env=travis``` and the whole framework cache gets cleared ```php artisan cache:clear```.
 
+## Application
+
+### Screenshots
+
+Here you see several screenshots of the final vocab trainer:
+
+![Screenshot 1](https://raw.github.com/csm-sem/workflow/master/res/screen_1.png)
+
+---
+
+![Screenshot 2](https://raw.github.com/csm-sem/workflow/master/res/screen_2.png)
+
+---
+
+![Screenshot 3](https://raw.github.com/csm-sem/workflow/master/res/screen_3.png)
