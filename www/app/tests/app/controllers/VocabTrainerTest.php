@@ -23,7 +23,7 @@ class VocabTrainerTest extends TestCase {
         $this->trainer = new VocabTrainer();
     }
     
-    public function getNextVocab() {
+    public function testTheTrainer() {
         echo $this->trainer->getNextVocab();
     }
 }
