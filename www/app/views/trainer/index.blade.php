@@ -4,7 +4,6 @@
 
         <h1>Trainer</h1>
 
-
         @if (( $int_tries>0 && $bool_result==false) || $int_tries==0 && $bool_result==true )
                 <h4 class="top-buffer">Result</h4>
                 <p>

@@ -73,8 +73,8 @@ class VocabTrainer extends BaseController {
 
     private function loadSession() {
         $this->usedVocabIds = Session::get('usedVocabIds', function() {return array();});
-        $this->bufferedVocabs = Session::get('bufferedVocabs', []);
-        $this->currentVocab = Session::get('currentVocab', null);
+        $this->bufferedVocabs = Session::get('bufferedVocabs', function() {return array();});
+        $this->currentVocab = Session::get('currentVocab', function() { return $this->getNextVocab(); });
         $this->currentVocabFails = Session::get('currentVocabFails', 0);
         $this->totalFails = Session::get('totalFails', 0);
         $this->totalSolved = Session::get('totalSolved', 0);
