@@ -20,7 +20,7 @@ after_script:
  - php artisan migrate:reset --env=travis
  - php artisan cache:clear
 
-script: phpunit
+script: phpunit --debug
 
 notifications:
  email: false
